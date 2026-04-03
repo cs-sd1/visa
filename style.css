@@ -11,9 +11,11 @@ header{
 }
 
 .logo{
-    width:60px;
+    width:80px;
+    margin-bottom:10px;
     border: solid white;
 }
+
 
 /* HERO */
 .hero{
@@ -56,16 +58,38 @@ button{
 
 /* FOOTER */
 footer{
-    margin-top:40px;
-    background:#00000020;
-    padding:20px;
+    margin-top:auto;
+    background:rgba(0,0,0,0.2);
+    padding:20px 10px;
 }
 
 .footer-box{
     max-width:400px;
     margin:auto;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.footer-box hr{
+    margin:10px 0;
+    border:none;
+    height:1px;
+    background:#ffffff50;
 }
 
 ul{
   text-align: left;
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+footer{
+    margin-top: auto;
 }
