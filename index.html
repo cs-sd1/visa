@@ -1,36 +1,1723 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-AO">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Horizonte Digital</title>
-<link rel="stylesheet" href="style.css">
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia Completo de Criação de Bovinos em Angola 2026 — CyberSev Solução Digital</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
+    :root {
+      --castanho-escuro: #2e1a0e;
+      --castanho-medio: #6b3a1f;
+      --castanho-claro: #a0522d;
+      --ocre: #c9943a;
+      --ocre-palido: #f5e6c8;
+      --savana: #d4b896;
+      --savana-escura: #8b6914;
+      --bege: #faf6ef;
+      --bege-escuro: #ede5d8;
+      --texto: #1a1208;
+      --texto-suave: #4a3728;
+      --branco: #fdfaf5;
+      --borda: #d4b896;
+      --vermelho-suave: #8b1a1a;
+      --verde-pasto: #4a6741;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background-color: var(--bege);
+      color: var(--texto);
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    /* ══ CAPA ══ */
+    #capa {
+      min-height: 100vh;
+      background-color: var(--castanho-escuro);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 70px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #capa::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 70% at 50% 40%, rgba(201,148,58,0.15) 0%, transparent 65%),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 60px,
+          rgba(255,255,255,0.02) 60px,
+          rgba(255,255,255,0.02) 61px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 60px,
+          rgba(255,255,255,0.02) 60px,
+          rgba(255,255,255,0.02) 61px
+        );
+    }
+
+    #capa::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(transparent, rgba(46,26,14,0.6));
+    }
+
+    .capa-inner { position: relative; z-index: 2; max-width: 780px; }
+
+    .editora-tag {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--ocre);
+      margin-bottom: 55px;
+    }
+
+    .capa-icone {
+      font-size: 4rem;
+      margin-bottom: 28px;
+      line-height: 1;
+      filter: drop-shadow(0 4px 20px rgba(201,148,58,0.4));
+    }
+
+    #capa h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      font-weight: 700;
+      color: var(--branco);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    #capa h1 em {
+      color: var(--ocre);
+      font-style: italic;
+    }
+
+    .capa-linha {
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ocre), transparent);
+      margin: 35px auto;
+    }
+
+    .capa-subtitulo {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      font-style: italic;
+    }
+
+    .capa-meta {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.12em;
+    }
+
+    /* ══ ÍNDICE ══ */
+    #indice {
+      background: var(--castanho-escuro);
+      padding: 80px 40px;
+    }
+
+    #indice .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    #indice h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--ocre);
+      margin-bottom: 8px;
+    }
+
+    #indice .sub-indice {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.88rem;
+      font-style: italic;
+      margin-bottom: 50px;
+      border-bottom: 1px solid rgba(201,148,58,0.25);
+      padding-bottom: 24px;
+    }
+
+    .lista-indice {
+      list-style: none;
+      counter-reset: cap;
+    }
+
+    .lista-indice li {
+      counter-increment: cap;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .lista-indice li:last-child { border-bottom: none; }
+
+    .lista-indice a {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      padding: 13px 6px;
+      text-decoration: none;
+      color: rgba(255,255,255,0.8);
+      transition: color 0.2s, padding-left 0.25s;
+      font-size: 0.97rem;
+    }
+
+    .lista-indice a:hover {
+      color: var(--ocre);
+      padding-left: 14px;
+    }
+
+    .lista-indice a::before {
+      content: counter(cap, decimal-leading-zero);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ocre);
+      min-width: 30px;
+      opacity: 0.8;
+    }
+
+    /* ══ MAIN ══ */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ══ CAPÍTULOS ══ */
+    section.capitulo {
+      padding: 86px 0 64px;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    section.capitulo:last-of-type { border-bottom: none; }
+
+    .label-cap {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--ocre);
+      margin-bottom: 12px;
+      font-family: 'Libre Baskerville', serif;
+    }
+
+    section.capitulo h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--castanho-escuro);
+      line-height: 1.18;
+      margin-bottom: 8px;
+    }
+
+    .cap-subtitulo {
+      color: var(--castanho-claro);
+      font-style: italic;
+      font-size: 0.95rem;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 2px solid var(--ocre-palido);
+    }
+
+    section.capitulo h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--castanho-escuro);
+      margin: 52px 0 16px;
+      position: relative;
+      padding-left: 18px;
+    }
+
+    section.capitulo h3::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 5px; height: 70%;
+      background: var(--ocre);
+      border-radius: 3px;
+    }
+
+    section.capitulo h4 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--castanho-medio);
+      margin: 32px 0 12px;
+    }
+
+    section.capitulo p {
+      margin-bottom: 20px;
+      color: var(--texto);
+    }
+
+    section.capitulo ul,
+    section.capitulo ol {
+      margin: 16px 0 24px 30px;
+    }
+
+    section.capitulo li {
+      margin-bottom: 10px;
+      color: var(--texto);
+    }
+
+    section.capitulo ul li::marker { color: var(--ocre); }
+    section.capitulo ol li::marker {
+      color: var(--castanho-medio);
+      font-weight: 700;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05em;
+    }
+
+    strong { color: var(--castanho-escuro); }
+    em { color: var(--castanho-medio); font-style: italic; }
+
+    /* ══ CAIXAS ══ */
+    .caixa {
+      padding: 22px 26px;
+      margin: 34px 0;
+      border-radius: 2px;
+    }
+
+    .caixa strong.rotulo {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .caixa-pratica {
+      background: var(--ocre-palido);
+      border-left: 5px solid var(--ocre);
+    }
+    .caixa-pratica strong.rotulo { color: var(--savana-escura); }
+
+    .caixa-alerta {
+      background: #fff8e8;
+      border-left: 5px solid var(--ocre);
+    }
+    .caixa-alerta strong.rotulo { color: #7a5a00; }
+
+    .caixa-perigo {
+      background: #fef2f2;
+      border-left: 5px solid #b91c1c;
+    }
+    .caixa-perigo strong.rotulo { color: #7a0000; }
+
+    .caixa-lei {
+      background: #f0f4ff;
+      border-left: 5px solid #3b5bdb;
+    }
+    .caixa-lei strong.rotulo { color: #1e3a8a; }
+
+    .caixa-lucro {
+      background: #f0fdf4;
+      border-left: 5px solid #16a34a;
+    }
+    .caixa-lucro strong.rotulo { color: #14532d; }
+
+    /* ══ TABELAS ══ */
+    .tabela-wrap {
+      overflow-x: auto;
+      margin: 34px 0;
+      border: 1px solid var(--borda);
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    thead {
+      background: var(--castanho-escuro);
+      color: var(--branco);
+    }
+
+    thead th {
+      padding: 14px 16px;
+      text-align: left;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+    }
+
+    tbody tr:nth-child(even) { background: var(--bege-escuro); }
+    tbody tr:nth-child(odd) { background: var(--branco); }
+
+    tbody td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--borda);
+      vertical-align: top;
+    }
+
+    /* ══ BLOCKQUOTE ══ */
+    blockquote {
+      margin: 36px 0;
+      padding: 22px 32px;
+      border-left: 4px solid var(--ocre);
+      background: var(--ocre-palido);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--castanho-medio);
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ══ VOLTAR ══ */
+    .volta {
+      display: inline-block;
+      margin-top: 44px;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--castanho-claro);
+      text-decoration: none;
+      border-bottom: 1px solid var(--savana);
+      padding-bottom: 2px;
+    }
+    .volta:hover { color: var(--castanho-escuro); }
+
+    /* ══ RODAPÉ ══ */
+    footer {
+      background: var(--castanho-escuro);
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 56px 40px;
+      font-size: 0.85rem;
+      line-height: 2.1;
+    }
+
+    footer strong {
+      display: block;
+      color: var(--ocre);
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+    }
+
+    footer .copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 14px;
+    }
+
+    /* ══ RESPONSIVO ══ */
+    @media (max-width: 640px) {
+      body { font-size: 15.5px; }
+      main { padding: 0 20px; }
+      #indice { padding: 50px 20px; }
+      #capa { padding: 50px 24px; }
+      section.capitulo h2 { font-size: 1.7rem; }
+    }
+  </style>
+</head>
 <body>
 
-<header>
-    <img src="lgt.jpg" class="logo">
+<!-- ══════════════ CAPA ══════════════ -->
+<header id="capa">
+  <div class="capa-inner">
+    <p class="editora-tag">CyberSev Solução Digital &nbsp;·&nbsp; Colecção Agronegócio Angola</p>
+    <div class="capa-icone">🐂</div>
+    <h1>Guia Completo de<br><em>Criação de Bovinos</em><br>em Angola 2026</h1>
+    <div class="capa-linha"></div>
+    <p class="capa-subtitulo">Do Curral ao Mercado — Tudo o que o Pecuarista Angolano Precisa de Saber</p>
+    <p class="capa-meta">Luanda · República de Angola · 2026</p>
+  </div>
 </header>
 
-<section class="hero">
-    <h1>ESCOLHA UMA OPÇÃO</h1>
-    <p>O acesso ao mundo financeiro começa aqui</p>
+<!-- ══════════════ ÍNDICE ══════════════ -->
+<nav id="indice">
+  <div class="wrap">
+    <h2>Índice Geral</h2>
+    <p class="sub-indice">17 capítulos · Clique para navegar directamente ao conteúdo</p>
+    <ol class="lista-indice">
+      <li><a href="#cap1">Bovinocultura em Angola — realidade e oportunidade em 2026</a></li>
+      <li><a href="#cap2">Raças bovinas adequadas ao clima angolano</a></li>
+      <li><a href="#cap3">Instalações e currais — construção simples e eficiente</a></li>
+      <li><a href="#cap4">Alimentação do gado — pastagem, silagem, suplementos</a></li>
+      <li><a href="#cap5">Gestão da água para bovinos</a></li>
+      <li><a href="#cap6">Reprodução — cobrição natural e inseminação artificial</a></li>
+      <li><a href="#cap7">Cuidados com bezerros — do nascimento ao desmame</a></li>
+      <li><a href="#cap8">Vacinação obrigatória em Angola — calendário completo</a></li>
+      <li><a href="#cap9">Doenças mais comuns — febre aftosa, carbúnculo, tristeza parasitária</a></li>
+      <li><a href="#cap10">Controlo de parasitas internos e externos</a></li>
+      <li><a href="#cap11">Manejo sanitário diário</a></li>
+      <li><a href="#cap12">Produção de leite — ordenha correcta e higiene</a></li>
+      <li><a href="#cap13">Engorda para corte — técnicas e tempo</a></li>
+      <li><a href="#cap14">Abate e comercialização em Angola</a></li>
+      <li><a href="#cap15">Cálculo de custos e lucro por cabeça</a></li>
+      <li><a href="#cap16">Erros fatais na criação de bovinos</a></li>
+      <li><a href="#cap17">Legislação básica para pecuaristas em Angola</a></li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ══════════════ CONTEÚDO ══════════════ -->
+<main>
+
+<!-- ═══ CAP 1 ═══ -->
+<section class="capitulo" id="cap1">
+  <p class="label-cap">Capítulo 01</p>
+  <h2>Bovinocultura em Angola — Realidade e Oportunidade em 2026</h2>
+  <p class="cap-subtitulo">O sector que alimenta o país e ainda tem espaço para crescer imensamente</p>
+
+  <p>Angola é um país de dimensão continental — 1,25 milhões de quilómetros quadrados — com vastas extensões de savana, pastos naturais e rios perenes que poderiam sustentar um dos maiores rebanhos bovinos de África. E no entanto, em 2026, o país ainda importa quantidades significativas de carne bovina e laticínios de países vizinhos como a Namíbia, a África do Sul e o Brasil. Esta contradição é, para quem sabe interpretar os números, uma das maiores oportunidades de negócio em todo o território nacional.</p>
+
+  <p>A população angolana cresceu para mais de 36 milhões de habitantes. O consumo de proteína animal, especialmente carne bovina, acompanha o crescimento da classe média urbana. As cidades — Luanda, Benguela, Huambo, Lubango, Malanje, Cabinda — concentram cada vez mais consumidores com poder de compra e dispostos a pagar preços justos por carne fresca e leite de qualidade.</p>
+
+  <h3>O Estado Actual do Efectivo Bovino em Angola</h3>
+
+  <p>O efectivo bovino nacional em Angola centra-se maioritariamente nas províncias do sul e sudeste — Huíla, Cunene, Cuando Cubango e Moxico — onde as tradições pastoris das etnias Ovimbundo, Nyaneka-Humbe e Herero mantiveram a criação de gado viva mesmo durante os períodos mais difíceis da história do país.</p>
+
+  <p>As estimativas actuais apontam para um efectivo total entre 4 e 6 milhões de cabeças em Angola, mas a grande maioria é gado de subsistência criado em sistemas extensivos tradicionais com baixa produtividade. A produção intensiva e semi-intensiva — com gestão técnica, raças melhoradas, alimentação suplementada e controlo sanitário — representa ainda uma fracção muito pequena do total. É exactamente nesse espaço que reside a oportunidade.</p>
+
+  <h3>Por que Agora é o Melhor Momento para Investir em Gado em Angola</h3>
+
+  <ol>
+    <li><strong>Procura crescente e subabastecida:</strong> O mercado consumidor cresce mais rápido do que a produção local. Qualquer produtor que entre com volume e qualidade tem mercado garantido.</li>
+    <li><strong>Política de substituição de importações:</strong> O governo angolano tem investido em políticas de incentivo à produção animal local através do Ministério da Agricultura, Pecuária e Pescas (MINAGRIP). Financiamentos, subsídios a insumos e programas de distribuição de animais foram alargados nos últimos anos.</li>
+    <li><strong>Preços de mercado favoráveis:</strong> O quilo de carne bovina nos mercados angolanos está entre os mais altos de África em relação ao custo de produção local, reflectindo a escassez estrutural de produto nacional.</li>
+    <li><strong>Pastagens disponíveis:</strong> Vastas extensões de terra com aptidão para pastagem em províncias como Malanje, Bié, Moxico e Lunda Norte estão subaproveitadas, com custos de acesso relativamente baixos.</li>
+    <li><strong>Tecnologia acessível:</strong> A inseminação artificial, a suplementação mineral, a vacinação em massa e o controlo parasitário — técnicas que triplicam a produtividade do rebanho — são hoje acessíveis a qualquer produtor com um mínimo de orientação técnica.</li>
+  </ol>
+
+  <h3>Sistemas de Criação Adoptados em Angola</h3>
+
+  <h4>Sistema Extensivo Tradicional</h4>
+  <p>Predomina no sul e no interior. O gado pasta livremente em terras comunitárias, sem cerca, sem suplementação e com manejo sanitário mínimo. A produtividade é baixa — índices de natalidade por volta de 40 a 50%, alta mortalidade de bezerros, abate tardio (4 a 6 anos). Mas o custo de produção é também muito baixo, o que mantém o sistema economicamente viável para as comunidades.</p>
+
+  <h4>Sistema Semi-Intensivo</h4>
+  <p>Cresce nas províncias do centro e norte. O gado é mantido em pastagens cultivadas ou nativas cercadas, com suplementação mineral, vacinação regular e algum controlo reprodutivo. A produtividade é consideravelmente maior — natalidade de 60 a 75%, menor mortalidade de bezerros, abate entre 2,5 e 3,5 anos. É o sistema mais adequado para a maioria dos produtores angolanos em 2026.</p>
+
+  <h4>Sistema Intensivo (Confinamento)</h4>
+  <p>Ainda raro em Angola, concentrado em unidades próximas de Luanda e Benguela que abastecem directamente o mercado urbano. Alta produtividade, alto custo, exige gestão técnica rigorosa e acesso a insumos (ração, medicamentos, equipamento). Potencial muito alto à medida que a urbanização avança.</p>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Sistema</th><th>Natalidade</th><th>Mortalidade Bezerros</th><th>Idade ao Abate</th><th>Custo Relativo</th></tr></thead>
+      <tbody>
+        <tr><td>Extensivo Tradicional</td><td>40–50%</td><td>20–30%</td><td>4–6 anos</td><td>Muito Baixo</td></tr>
+        <tr><td>Semi-Intensivo</td><td>60–75%</td><td>8–12%</td><td>2,5–3,5 anos</td><td>Médio</td></tr>
+        <tr><td>Intensivo</td><td>80–90%</td><td>3–6%</td><td>18–24 meses</td><td>Alto</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>As Províncias com Maior Potencial Pecuário</h3>
+
+  <ul>
+    <li><strong>Huíla:</strong> Clima ameno, pastagens de altitude, tradição pecuária forte. Capital Lubango com mercado local exigente.</li>
+    <li><strong>Cunene:</strong> Rebanhos tradicionais grandes, pastagens extensas, proximidade com a Namíbia (referência técnica regional).</li>
+    <li><strong>Cuando Cubango:</strong> Vastas extensões de savana, rios perenes, baixa densidade populacional — ideal para sistemas extensivos de grande escala.</li>
+    <li><strong>Malanje:</strong> Solo fértil, pluviometria boa, produção de milho e mandioca que pode alimentar o gado na seca.</li>
+    <li><strong>Bié:</strong> Planalto Central com clima favorável, pastagens naturais de qualidade e agricultura de suporte ao gado.</li>
+    <li><strong>Lunda Norte e Sul:</strong> Abertura crescente à pecuária, terra disponível, proximidade ao Congo com mercado exportador.</li>
+  </ul>
+
+  <blockquote>
+    "Angola tem terra para criar gado. Tem água para abeberá-lo. Tem clima para a pastagem crescer. O que faltou durante anos foi técnica, gestão e financiamento. Em 2026, todos os três estão mais acessíveis do que nunca."
+  </blockquote>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
 </section>
 
-<section class="options">
-    <a href="conta.html" class="option">SOLICITAR CONTA VISA</a>
-    <a href="vantagens.html" class="option">SABER SOBRE AS VANTAGENS</a>
-    <a href="aprender.html" class="option">APRENDER A FAZER ABERTURA</a>
+<!-- ═══ CAP 2 ═══ -->
+<section class="capitulo" id="cap2">
+  <p class="label-cap">Capítulo 02</p>
+  <h2>Raças Bovinas Adequadas ao Clima Angolano</h2>
+  <p class="cap-subtitulo">Escolher a raça certa é a primeira decisão técnica — e uma das mais importantes</p>
+
+  <p>Muitos produtores angolanos cometem o erro de comprar animais bonitos ou baratos sem considerar se a raça se adapta ao clima, às pastagens e ao objectivo de produção (carne ou leite) da sua exploração. Uma raça europeia de alta produção leiteira importada directamente para o Cunene pode morrer de calor, parasitas e stress em poucos meses. A raça certa, pelo contrário, prospera sem cuidados extraordinários.</p>
+
+  <h3>Critérios de Selecção de Raça para Angola</h3>
+
+  <ol>
+    <li><strong>Tolerância ao calor:</strong> Angola tem zonas muito quentes, especialmente no litoral e no sul. Raças de origem europeia (Bos taurus) têm baixa tolerância ao calor. Raças zebuínas (Bos indicus) e seus cruzamentos são naturalmente adaptadas ao calor tropical.</li>
+    <li><strong>Resistência a parasitas:</strong> O carrapato, a mosca tsé-tsé (em certas regiões), os vermes gastrointestinais e a babesiose são realidades em Angola. Raças zebuínas têm pele mais espessa, mais glândulas sebáceas e maior resistência genética aos parasitas externos.</li>
+    <li><strong>Capacidade de aproveitamento de pastagens pobres:</strong> Nas épocas secas, a pastagem de Angola perde qualidade rapidamente. Raças rústicas mantêm a condição corporal com pastagens de baixo valor nutritivo onde raças exigentes perderiam peso.</li>
+    <li><strong>Objectivo de produção:</strong> Carne ou leite? Raças de corte produzem mais carne com menor custo. Raças leiteiras produzem leite mas exigem melhor manejo e alimentação. Raças mistas (dupla aptidão) são uma solução intermédia muito útil para o produtor familiar angolano.</li>
+  </ol>
+
+  <h3>Raças Recomendadas para Corte em Angola</h3>
+
+  <h4>Nelore (Zebu Indiano)</h4>
+  <p>A raça mais recomendada para corte em Angola. Oriunda do subcontinente indiano, é a raça zebuína mais difundida em todo o Brasil e já com presença crescente em Angola. Características principais:</p>
+  <ul>
+    <li>Excelente tolerância ao calor e à seca</li>
+    <li>Alta resistência a carrapatos e moscas</li>
+    <li>Boa conversão alimentar em pastagens tropicais</li>
+    <li>Peso adulto: touros 700–900 kg, vacas 400–500 kg</li>
+    <li>Rendimento de carcaça: 52–56%</li>
+    <li>Temperamento calmo — fácil de manejar</li>
+  </ul>
+
+  <h4>Zebu Africano (Bos indicus africano)</h4>
+  <p>As raças zebuínas autóctones de Angola — presentes sobretudo no Cunene e no Cuando Cubango — são resultado de séculos de selecção natural nas condições angolanas. São menores que o Nelore mas extraordinariamente adaptadas. Para sistemas extensivos tradicionais com mínimo de insumos, o zebu local é imbatível.</p>
+
+  <h4>Brahman</h4>
+  <p>Desenvolvida nos EUA a partir de zebus indianos, o Brahman combina a rusticidade zebuína com um porte maior e excelente produção de carne. Adapta-se bem ao clima angolano e é muito usada em cruzamentos para melhorar o porte das raças locais sem perder a rusticidade.</p>
+
+  <h4>Brangus (Cruzamento Brahman × Angus)</h4>
+  <p>Resultado do cruzamento entre o Brahman (zebu, resistência) e o Aberdeen Angus (europeu, qualidade de carne), o Brangus combina o melhor dos dois mundos. Muito indicado para regiões angolanas com melhor disponibilidade de pasto e alguma suplementação. Produz carne de qualidade superior com razoável rusticidade.</p>
+
+  <h3>Raças Recomendadas para Leite em Angola</h3>
+
+  <h4>Girolando</h4>
+  <p>O Girolando é o cruzamento entre o Gir (zebu leiteiro indiano) e o Holandês (europeu). É a raça leiteira tropical mais produtiva e adaptada ao calor que existe. No Brasil, é a principal raça leiteira. Em Angola, está em expansão e é a melhor escolha para produção de leite em clima quente.</p>
+  <ul>
+    <li>Produção média: 15–25 litros/dia com boa alimentação</li>
+    <li>Tolerância ao calor excelente (origem zebuína)</li>
+    <li>Resistência a parasitas boa</li>
+    <li>Ideal para o Planalto Central angolano</li>
+  </ul>
+
+  <h4>Gir Leiteiro</h4>
+  <p>O Gir é a raça zebuína leiteira por excelência. Produção de 10–18 litros/dia com alimentação moderada. Excelente adaptação ao clima quente e seco. Boa para as províncias do sul e do litoral onde o calor é mais intenso.</p>
+
+  <h4>Guzerá</h4>
+  <p>Outra raça zebuína de dupla aptidão — produz carne e leite. Mais rústica que o Girolando mas com boa produção leiteira. Excelente opção para o produtor que quer começar com um animal versátil e que não precise de insumos caros.</p>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead>
+        <tr><th>Raça</th><th>Aptidão</th><th>Adaptação ao Calor</th><th>Resistência a Parasitas</th><th>Produtividade</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nelore</td><td>Corte</td><td>Excelente</td><td>Excelente</td><td>Alta</td></tr>
+        <tr><td>Zebu Local</td><td>Corte/Dupla</td><td>Excelente</td><td>Excelente</td><td>Média (muito eficiente)</td></tr>
+        <tr><td>Brahman</td><td>Corte</td><td>Muito Boa</td><td>Muito Boa</td><td>Alta</td></tr>
+        <tr><td>Brangus</td><td>Corte</td><td>Boa</td><td>Boa</td><td>Alta (carne premium)</td></tr>
+        <tr><td>Girolando</td><td>Leite</td><td>Muito Boa</td><td>Boa</td><td>Muito Alta (leite)</td></tr>
+        <tr><td>Gir Leiteiro</td><td>Leite</td><td>Excelente</td><td>Excelente</td><td>Alta (leite)</td></tr>
+        <tr><td>Guzerá</td><td>Dupla</td><td>Excelente</td><td>Excelente</td><td>Média-Alta</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Estratégia de Cruzamento para Angola</h3>
+
+  <p>Para produtores que já têm gado local e querem melhorar a produtividade gradualmente, o cruzamento é a estratégia mais eficiente. Em vez de substituir todo o rebanho por animais importados caros, usa-se um touro melhorado (ou inseminação artificial com sémen importado) para melhorar progressivamente o rebanho local, mantendo a base genética de adaptação ao ambiente angolano.</p>
+
+  <p>O cruzamento Nelore × Zebu Local é uma das melhores opções para Angola: os filhos têm porte maior e maior velocidade de crescimento do que o gado local, mas mantêm a rusticidade e a adaptação ao clima.</p>
+
+  <div class="caixa-pratica">
+    <strong class="rotulo">Recomendação Prática</strong>
+    Para quem começa do zero em Angola com sistema semi-intensivo: <strong>Nelore para corte</strong> ou <strong>Girolando para leite</strong>. Para cruzamento com gado local: touros Nelore ou Brahman. Para zonas mais quentes (Cunene, Namibe litoral): Gir ou Zebu Local puro.
+  </div>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
 </section>
 
+<!-- ═══ CAP 3 ═══ -->
+<section class="capitulo" id="cap3">
+  <p class="label-cap">Capítulo 03</p>
+  <h2>Instalações e Currais — Construção Simples e Eficiente</h2>
+  <p class="cap-subtitulo">Estruturas que funcionam, construídas com materiais disponíveis em Angola</p>
+
+  <p>A instalação não precisa de ser cara nem sofisticada. Precisa de ser funcional: proteger os animais do sol e da chuva, facilitar o manejo diário, ser fácil de limpar e de reparar. Um curral bem projectado reduz o tempo de trabalho, reduz o stress dos animais e reduz a transmissão de doenças. Um curral mal projectado gera problemas todos os dias.</p>
+
+  <h3>Princípios de Projecto para o Clima Angolano</h3>
+
+  <ol>
+    <li><strong>Ventilação prioritária sobre tudo:</strong> Em Angola, o calor mata mais gado que a chuva. As instalações devem ser abertas nos lados, com o eixo maior orientado no sentido dos ventos predominantes. Nada de paredes fechadas — o calor acumula e prejudica tanto a produção como a saúde.</li>
+    <li><strong>Cobertura obrigatória:</strong> O sol directo no período mais quente do dia (10h–16h) estressifica os animais, reduz o consumo de alimento e baixa a produção de leite em até 30%. Toda a área de descanso deve ter cobertura.</li>
+    <li><strong>Piso firme e drenável:</strong> O piso da área de manejo (tronco, balança, comedouro) deve ser de terra batida ou cimento. O piso do curral pode ser terra, mas deve ter boa drenagem para que não forme lama na época das chuvas. Lama acumula bactérias e parasitas.</li>
+    <li><strong>Facilidade de manejo:</strong> O curral deve ser projectado para que um único operador consiga separar, examinar, vacinar ou tratar um animal sem ajuda. Corredores de manejo estreitos (60–70 cm de largura) controlam o movimento dos animais com segurança.</li>
+    <li><strong>Água e alimentação centralizadas:</strong> Bebedouros e comedouros devem ser acessíveis a todos os animais do lote sem que os dominantes bloqueiem o acesso dos mais fracos.</li>
+  </ol>
+
+  <h3>Tipos de Instalações</h3>
+
+  <h4>Cercas de Pasto</h4>
+  <p>A cerca é a instalação mais importante de qualquer exploração bovina. Sem cerca, não há controlo do rebanho, não há rotação de pastagens, não há gestão reprodutiva.</p>
+
+  <p><strong>Tipos de cerca usados em Angola:</strong></p>
+  <ul>
+    <li><strong>Arame farpado:</strong> o mais comum e mais barato. Mínimo de 4 fios com esticadores a cada 15–20 metros. Postes de madeira ou ferro. Duração: 10–15 anos.</li>
+    <li><strong>Cerca eléctrica:</strong> cada vez mais usada em Angola. Usa um fio electrificado com energizador solar — muito eficiente, mais barata que o arame farpado por metro linear a longo prazo. Exige manutenção (vegetação não pode tocar o fio).</li>
+    <li><strong>Cerca de madeira e varas:</strong> tradicional nas zonas rurais. Usa madeira local. Durável se a madeira for de qualidade. Boa para currais e apriscos.</li>
+  </ul>
+
+  <h4>Curral Principal</h4>
+  <p>O curral é a área central da exploração. Todos os animais passam pelo curral regularmente para vacinação, pesagem, separação de lotes e tratamentos. Deve ter:</p>
+  <ul>
+    <li>Área de 4 a 5 m² por animal adulto</li>
+    <li>Portões resistentes com abertura para ambos os lados</li>
+    <li>Corredor de manejo com largura de 60–70 cm e altura de 1,6 m</li>
+    <li>Tronco de contenção para tratar animais individualmente</li>
+    <li>Área coberta de descanso</li>
+    <li>Bebedouro central de acesso fácil</li>
+  </ul>
+
+  <h4>Tronco de Contenção</h4>
+  <p>O tronco é o equipamento de manejo mais importante depois da cerca. É uma estrutura em corredor estreito onde o animal entra e fica imobilizado para exames, vacinações, tratamentos e identificação. <strong>Nenhuma exploração bovina séria trabalha sem tronco.</strong></p>
+
+  <p><strong>Como construir um tronco simples com madeira local:</strong></p>
+  <ol>
+    <li>Escave 4 buracos de 60 cm de profundidade em rectângulo: 70 cm de largura × 2,5 m de comprimento.</li>
+    <li>Instale postes de madeira dura (eucalipto ou madeira local resistente) de 12 cm de diâmetro.</li>
+    <li>Pregue travessas horizontais de madeira dos dois lados, espaçadas de 25 cm, do nível do solo até 1,6 m de altura.</li>
+    <li>Instale uma porta de entrada na parte traseira e uma comporta de saída na frente.</li>
+    <li>O animal entra pela traseira, anda até ao fundo e fica imobilizado lateralmente pelas travessas.</li>
+    <li>A comporta frontal impede que avance; uma travessa ou corrente no pescoço impede que recue.</li>
+  </ol>
+
+  <h4>Área de Maternidade</h4>
+  <p>As vacas próximas do parto precisam de um espaço separado, tranquilo, protegido de outros animais. Uma área de 9–12 m² por vaca, com cobertura e piso de areia ou terra macia, é suficiente. Mantenha a vaca na maternidade 3 a 5 dias antes do parto previsto e até 7 a 10 dias após o nascimento.</p>
+
+  <h4>Aprisco para Bezerros</h4>
+  <p>Os bezerros nos primeiros 2 a 3 meses de vida precisam de um espaço separado das mães durante parte do dia (especialmente quando se faz ordenha). Um aprisco com sombra, sem lama, com cocho de concentrado e água limpa é fundamental para a saúde e o crescimento dos bezerros.</p>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Instalação</th><th>Área Mínima</th><th>Material Principal</th><th>Prioridade</th></tr></thead>
+      <tbody>
+        <tr><td>Cerca de pasto</td><td>Perímetro do pasto</td><td>Arame farpado / madeira</td><td>Essencial</td></tr>
+        <tr><td>Curral principal</td><td>4–5 m² / animal</td><td>Madeira / ferro / cimento</td><td>Essencial</td></tr>
+        <tr><td>Tronco de contenção</td><td>70 cm × 2,5 m</td><td>Madeira dura</td><td>Essencial</td></tr>
+        <tr><td>Cobertura (sombra)</td><td>3 m² / animal</td><td>Chapa / capim / palha</td><td>Essencial</td></tr>
+        <tr><td>Maternidade</td><td>9–12 m² / vaca</td><td>Madeira / terra macia</td><td>Alta</td></tr>
+        <tr><td>Aprisco de bezerros</td><td>2 m² / bezerro</td><td>Madeira / rede</td><td>Alta</td></tr>
+        <tr><td>Depósito de insumos</td><td>10–20 m²</td><td>Alvenaria</td><td>Recomendada</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="caixa-alerta">
+    <strong class="rotulo">Materiais Locais</strong>
+    Angola tem madeira de qualidade em muitas províncias. Eucalipto, pau-ferro, mutiati e outras espécies nativas são excelentes para construções rurais. Use madeira local tratada com óleo queimado de motor (aplicado a quente na base enterrada) para aumentar a durabilidade. Evite madeiras não tratadas enterradas directamente — apodrecem em 2 a 3 anos no clima húmido de Angola.
+  </div>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 4 ═══ -->
+<section class="capitulo" id="cap4">
+  <p class="label-cap">Capítulo 04</p>
+  <h2>Alimentação do Gado — Pastagem, Silagem, Suplementos</h2>
+  <p class="cap-subtitulo">A alimentação representa 60 a 70% do custo total de produção bovina — gerir bem é lucrar mais</p>
+
+  <p>Em Angola, a principal fonte de alimentação dos bovinos é a pastagem natural. Na época das chuvas, a pastagem é abundante e nutritiva. Na época seca, torna-se escassa e pobre em proteína e energia. Esta variação sazonal é o maior desafio nutricional da pecuária angolana — e também a maior oportunidade de diferenciação para quem souber gerir a alimentação durante o cacimbo.</p>
+
+  <h3>Pastagens Naturais em Angola</h3>
+
+  <p>As pastagens naturais de Angola variam enormemente por região. No norte, predominam gramíneas tropicais de folha larga com boa qualidade. No planalto central, pastagens mistas com gramas finas de boa palatabilidade. No sul, savana seca com gramíneas resistentes mas de baixo valor nutritivo na seca.</p>
+
+  <h4>Gestão da Pastagem Natural — Rotação de Piquetes</h4>
+  <p>O maior erro do pecuarista angolano é o pastoreio contínuo — deixar o gado no mesmo pasto o ano todo sem rotação. Isto destrói a pastagem em poucos anos: as plantas não recuperam, as mais palatáveis desaparecem e as indesejadas (invasoras) tomam conta.</p>
+
+  <p><strong>Sistema de rotação simples (3 piquetes):</strong></p>
+  <ol>
+    <li>Divida a área de pasto em 3 partes iguais com cerca.</li>
+    <li>Coloque o gado no Piquete 1 por 10 a 15 dias (dependendo da disponibilidade de pasto).</li>
+    <li>Mova para o Piquete 2 — o Piquete 1 descansa e recupera por 20 a 30 dias.</li>
+    <li>Mova para o Piquete 3 — o Piquete 2 descansa.</li>
+    <li>Volte ao Piquete 1 — já está recuperado.</li>
+    <li>Nunca deixe o gado num piquete até comer tudo — mova quando o pasto atingir 15 cm de altura residual.</li>
+  </ol>
+
+  <h3>Pastagens Cultivadas — Gramíneas Recomendadas para Angola</h3>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Gramínea</th><th>Clima Adequado</th><th>Produção (t MS/ha/ano)</th><th>Proteína Bruta</th><th>Observações</th></tr></thead>
+      <tbody>
+        <tr><td>Brachiaria brizantha</td><td>Subúmido / Húmido</td><td>10–15</td><td>8–12%</td><td>A mais cultivada em Angola. Tolerante à seca.</td></tr>
+        <tr><td>Brachiaria decumbens</td><td>Húmido</td><td>12–18</td><td>9–12%</td><td>Alta produção, não tolera solos ácidos.</td></tr>
+        <tr><td>Andropogon gayanus</td><td>Seco / Subúmido</td><td>8–12</td><td>7–10%</td><td>Excelente para regiões secas do sul.</td></tr>
+        <tr><td>Panicum maximum (Tanzânia)</td><td>Húmido</td><td>15–25</td><td>10–14%</td><td>Alta produção, exige solo fértil.</td></tr>
+        <tr><td>Cynodon (Estrela)</td><td>Húmido / Irrigado</td><td>20–30</td><td>12–16%</td><td>Ideal para pastagem de corte e ordenha.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Silagem — Conservação do Excedente para a Época Seca</h3>
+
+  <p>A silagem é a conservação do pasto ou do milho por fermentação anaeróbica (sem ar). É a melhor solução para garantir alimento de qualidade durante o cacimbo, quando a pastagem seca e perde valor nutritivo. O produtor angolano que faz silagem na época das chuvas tem alimento de qualidade garantido nos 4 a 5 meses secos.</p>
+
+  <h4>Como fazer silagem de capim em Angola (método de trincheira)</h4>
+  <ol>
+    <li>Escolha o local: terreno firme, ligeiramente inclinado para drenagem, protegido de enchentes.</li>
+    <li>Cave uma trincheira de dimensões proporcionais ao tamanho do rebanho. Regra geral: 50–60 kg de silagem por animal adulto por mês de seca.</li>
+    <li>Corte o capim no ponto ideal — para gramíneas como a Brachiaria, no início do espigamento, com 40–50% de matéria seca (murcha levemente após 4–6h ao sol).</li>
+    <li>Pique o material em pedaços de 2–3 cm (facilita a compactação) — use facão ou picadora.</li>
+    <li>Encha a trincheira em camadas de 20 cm, compactando cada camada muito bem com tractor ou pisando com pessoas. <strong>A compactação é o factor mais crítico — ar na silagem causa podridão.</strong></li>
+    <li>Quando cheia, cubra imediatamente com plástico preto ou folhas de bananeira e cubra com terra (30–40 cm de espessura). Peso sobre o plástico: pneus velhos, sacos de areia, pedras.</li>
+    <li>Espere mínimo 30 dias antes de abrir. A silagem está boa quando tem cheiro ácido agradável (como vinagre fraco), cor amarelo-esverdeada e textura firme.</li>
+    <li>Uma vez aberta, retire a quantidade diária e cubra o restante de volta.</li>
+  </ol>
+
+  <h3>Suplementação Mineral</h3>
+
+  <p>Os solos de Angola, especialmente nas regiões de cerrado e savana, são pobres em minerais importantes para o gado — especialmente fósforo, cobre, zinco e cobalto. Um animal com deficiência mineral não cresce, não engravida e tem sistema imunitário fraco. <strong>A mineralização do gado é talvez o investimento com melhor custo-benefício em toda a pecuária angolana.</strong></p>
+
+  <h4>Como fornecer o sal mineral</h4>
+  <ul>
+    <li>Use sal mineral completo (com macro e microelementos) — disponível em lojas agropecuárias nas principais cidades angolanas.</li>
+    <li>Fornecimento à vontade em cochos cobertos (protegidos da chuva que lixivia os minerais).</li>
+    <li>Um animal adulto consome 50–100 g de sal mineral por dia. Um cocho com 5 kg abastece 10 animais por semana.</li>
+    <li>O cocho deve estar sempre disponível e nunca vazio — o animal complementa o que falta na pastagem de forma instintiva.</li>
+    <li>Coloque o cocho de sal perto do bebedouro — o animal bebe mais quando ingere sal, o que é benéfico.</li>
+  </ul>
+
+  <h3>Suplementação Proteica e Energética na Seca</h3>
+
+  <p>Quando a pastagem seca perde proteína (abaixo de 7% de PB), os microrganismos do rúmen não funcionam correctamente e o animal perde peso mesmo que haja pasto disponível. A suplementação estratégica na época seca pode manter o peso e até ganhar peso com pouco custo adicional.</p>
+
+  <ul>
+    <li><strong>Ureia + milho moído:</strong> mistura 1% de ureia no milho moído fornecida em pequenas quantidades (200–300 g/animal/dia) fornece nitrogénio não proteico ao rúmen. <strong>Atenção: ureia em excesso é tóxica — nunca ultrapasse 1% do total da ração.</strong></li>
+    <li><strong>Torta de algodão ou soja:</strong> excelente fonte de proteína, disponível em algumas regiões de Angola.</li>
+    <li><strong>Melaço de cana:</strong> fonte de energia e palatabilidade. Misturado com ureia (1 parte ureia para 9 partes melaço) é o suplemento mais barato para a seca.</li>
+    <li><strong>Feno de leguminosas:</strong> Estilosantes, leucena e outras leguminosas secas ao sol são excelentes fontes de proteína para a seca. Pode ser produzido na própria fazenda.</li>
+  </ul>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 5 ═══ -->
+<section class="capitulo" id="cap5">
+  <p class="label-cap">Capítulo 05</p>
+  <h2>Gestão da Água para Bovinos</h2>
+  <p class="cap-subtitulo">O animal que não bebe o suficiente não come, não cresce e não produz</p>
+
+  <p>A água é o nutriente mais esquecido na pecuária angolana. Produtores gastam dinheiro com vacinas, sal mineral e ração, mas negligenciam a qualidade e a disponibilidade da água. Um bovino adulto precisa de 40 a 80 litros de água por dia no tempo quente — e uma vaca em lactação pode precisar de 120 litros. Falta de água reduz consumo de pasto, reduz produção de leite, reduz ganho de peso e aumenta a susceptibilidade a doenças.</p>
+
+  <h3>Necessidades de Água por Categoria Animal</h3>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Categoria</th><th>Litros/dia (clima ameno)</th><th>Litros/dia (calor intenso)</th></tr></thead>
+      <tbody>
+        <tr><td>Bezerro (0–6 meses)</td><td>5–15</td><td>15–25</td></tr>
+        <tr><td>Novilha / Novilho</td><td>20–35</td><td>35–55</td></tr>
+        <tr><td>Vaca seca</td><td>35–50</td><td>50–70</td></tr>
+        <tr><td>Vaca em lactação</td><td>60–80</td><td>80–120</td></tr>
+        <tr><td>Touro adulto</td><td>40–60</td><td>60–90</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Fontes de Água em Angola</h3>
+
+  <h4>Rios e Ribeiros</h4>
+  <p>Angola tem rios perenes em muitas regiões — o Kwanza, o Cubango, o Cunene, o Kasai e dezenas de afluentes. O gado pode beber directamente dos rios, mas isso apresenta riscos: contaminação por fezes dos próprios animais, transmissão de doenças hídrica (leptospirose, fasciolose) e erosão das margens. Recomenda-se construir bebedouros abastecidos por bomba do rio, mantendo o gado afastado das margens.</p>
+
+  <h4>Poços e Furos</h4>
+  <p>Em zonas sem rios próximos, o furo artesiano (poço perfurado mecanicamente) é a solução mais fiável. Muitas províncias angolanas têm lençol freático a profundidades acessíveis. Uma bomba solar (cada vez mais acessível em Angola) pode elevar a água do furo para um reservatório elevado que abastece os bebedouros por gravidade, sem custo energético diário.</p>
+
+  <h4>Açudes e Barragens</h4>
+  <p>Em zonas com boa pluviometria (centro e norte de Angola), a construção de pequenos açudes que colectam a água da chuva é uma solução económica e eficaz. Um açude de 500 m³ pode abastecer 50 cabeças durante 3 a 4 meses de seca completa.</p>
+
+  <h3>Bebedouros — Tipos e Dimensionamento</h3>
+
+  <p>O bebedouro deve ser acessível a todos os animais do lote simultaneamente, fácil de limpar e construído com materiais não tóxicos. Os pneus velhos cortados ao meio são a solução mais barata e mais comum em Angola — funcionam bem se limpos regularmente.</p>
+
+  <p><strong>Dimensionamento:</strong> Para um lote de 20 animais adultos, preveja pelo menos 5 metros lineares de borda de bebedouro (15–20 cm de espaço por animal). Um bebedouro de 2 metros de comprimento por 0,5 de largura serve 8 a 10 animais adultos.</p>
+
+  <h4>Higiene do bebedouro</h4>
+  <ol>
+    <li>Esvazie e limpe os bebedouros pelo menos 2 vezes por semana.</li>
+    <li>Retire algas, lama e fezes acumuladas.</li>
+    <li>Use escova e água — nunca detergente ou desinfectante químico em bebedouros activos.</li>
+    <li>Verifique se há fissuras ou zonas de estagnação onde se acumula matéria orgânica.</li>
+    <li>Água verde, fedorenta ou com lama visível é água imprópria — o gado bebe menos e produz menos.</li>
+  </ol>
+
+  <div class="caixa-pratica">
+    <strong class="rotulo">Sistema de Rega Solar em Angola</strong>
+    Uma bomba solar de 1/2 HP custa entre 200.000 e 400.000 Kz e eleva até 5.000 litros por dia de um furo de 40 metros. Com um reservatório elevado de 5.000 litros (IBC de plástico sobre uma plataforma de madeira a 3 metros de altura), abastece 60 a 80 animais por dia por gravidade, sem electricidade da rede. O investimento paga-se em 1 a 2 anos comparado com o custo de carregar água manualmente.
+  </div>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 6 ═══ -->
+<section class="capitulo" id="cap6">
+  <p class="label-cap">Capítulo 06</p>
+  <h2>Reprodução — Cobrição Natural e Inseminação Artificial</h2>
+  <p class="cap-subtitulo">O lucro da pecuária começa com um bezerro vivo por vaca por ano</p>
+
+  <p>O índice reprodutivo — quantos bezerros vivos por vaca por ano — é o indicador mais importante de uma exploração bovina. Um rebanho com 60% de natalidade produz muito menos lucro do que o mesmo rebanho com 80% de natalidade. A diferença está quase sempre na gestão reprodutiva.</p>
+
+  <h3>O Ciclo Reprodutivo da Vaca</h3>
+
+  <ul>
+    <li><strong>Puberdade:</strong> 12 a 18 meses de idade, dependendo da raça e nutrição.</li>
+    <li><strong>Ciclo estral:</strong> 21 dias (varia de 18 a 24 dias). A vaca fica receptiva ao touro (cio) por 6 a 24 horas dentro desse ciclo.</li>
+    <li><strong>Gestação:</strong> 280 a 290 dias (aproximadamente 9,5 meses).</li>
+    <li><strong>Intervalo entre partos ideal:</strong> 12 meses — uma vaca por ano. Na prática em Angola, o intervalo médio é de 14 a 18 meses por deficiências de manejo.</li>
+    <li><strong>Anoestro pós-parto:</strong> A vaca normalmente não cicla durante 60 a 90 dias após o parto. Vacas com boa nutrição retornam ao cio mais cedo.</li>
+  </ul>
+
+  <h3>Sinais de Cio — Como Identificar</h3>
+
+  <p>Reconhecer o cio é fundamental para a inseminação artificial e para monitorar a actividade reprodutiva do rebanho.</p>
+
+  <ul>
+    <li>Vaca inquieta, anda mais, muge frequentemente</li>
+    <li>Aceita ser montada por outras vacas (sinal mais fiável)</li>
+    <li>Monta outras vacas</li>
+    <li>Vulva levemente inchada e húmida, com muco transparente</li>
+    <li>Cauda levantada</li>
+    <li>Queda de produção de leite no dia do cio</li>
+    <li>Pelo nas ancas arrepiado ou sujo (de ser montada)</li>
+  </ul>
+
+  <h3>Cobrição Natural</h3>
+
+  <p>É o método mais simples e mais usado em Angola. Um touro fértil e activo é colocado junto das vacas e cobre-as naturalmente quando elas entram em cio.</p>
+
+  <h4>Relação touro/vacas</h4>
+  <ul>
+    <li>Um touro jovem (2–3 anos): 20 a 25 vacas</li>
+    <li>Um touro adulto (4–7 anos): 25 a 35 vacas</li>
+    <li>Um touro velho ou pesado: máximo 20 vacas</li>
+  </ul>
+
+  <h4>Estação de monta</h4>
+  <p>Em vez de deixar o touro com as vacas o ano todo (o que dificulta a previsão dos partos e a gestão da maternidade), concentre a cobrição numa estação de 60 a 90 dias. Os partos ficam concentrados numa época também, facilitando o manejo da maternidade e dos bezerros.</p>
+
+  <p>Em Angola, a estação de monta ideal é calculada para que os partos coincidam com o início da época das chuvas (Outubro–Novembro) — quando a pastagem está boa e a vaca em lactação tem mais alimento disponível.</p>
+
+  <h3>Inseminação Artificial (IA)</h3>
+
+  <p>A inseminação artificial é a tecnologia reprodutiva com maior impacto na melhoria do rebanho. Com ela, um único touro de elite (provado geneticamente) pode gerar milhares de filhos em todo Angola. O sémen de touros Nelore, Girolando ou Brahman de alta performance está disponível em botijões de azoto líquido em Angola.</p>
+
+  <h4>Passos para implementar IA em Angola</h4>
+  <ol>
+    <li><strong>Selecção das vacas:</strong> apenas vacas em bom estado corporal (pontuação ≥ 3 de 5), saudáveis e já ciclando devem ser inseminadas. Vacas magras ou doentes têm taxa de concepção baixa.</li>
+    <li><strong>Sincronização do cio (opcional mas recomendada):</strong> permite inseminar todas as vacas no mesmo dia, sem precisar de observar o cio individualmente. Usa protocolos hormonais (CIDR + prostaglandina + eCG) disponíveis em lojas veterinárias angolanas.</li>
+    <li><strong>Detecção do cio (se não sincronizar):</strong> observar o rebanho de manhã cedo e ao final da tarde — momentos de maior actividade estral.</li>
+    <li><strong>Inseminação:</strong> deve ser feita 12 a 18 horas após o início do cio. Exige técnico treinado com pistola de IA e acesso ao nitrogénio líquido.</li>
+    <li><strong>Diagnóstico de gestação:</strong> aos 45–60 dias após a IA, verificar por palpação rectal (veterinário) ou ecografia se a vaca ficou gestante.</li>
+    <li><strong>Vacas não gestantes:</strong> retornam ao protocolo ou ao touro para nova cobrição.</li>
+  </ol>
+
+  <div class="caixa-pratica">
+    <strong class="rotulo">Taxa de Concepção Realista em Angola</strong>
+    Em condições bem geridas, a IA tem taxa de concepção de 50–65% por dose. Com protocolo de sincronização e vacas bem preparadas (nutrição, saúde), pode chegar a 70–75%. Para maximizar o resultado, nunca insemine vacas magras, doentes ou recém-paridas (menos de 60 dias de pós-parto).
+  </div>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 7 ═══ -->
+<section class="capitulo" id="cap7">
+  <p class="label-cap">Capítulo 07</p>
+  <h2>Cuidados com Bezerros — Do Nascimento ao Desmame</h2>
+  <p class="cap-subtitulo">Os primeiros 90 dias de vida determinam o desempenho do animal por toda a vida</p>
+
+  <p>O bezerro é o produto final da vaca e o futuro do rebanho. Perder um bezerro representa perder todo o investimento de 9 meses de gestação. Em Angola, a mortalidade de bezerros nos sistemas extensivos pode chegar a 20–30% — um número que pode e deve ser reduzido dramaticamente com cuidados simples nas primeiras horas e semanas de vida.</p>
+
+  <h3>O Parto — Acompanhamento e Intervenção</h3>
+
+  <ol>
+    <li><strong>Preparação:</strong> Coloque a vaca na maternidade 3 a 5 dias antes do parto previsto. Sinais de parto iminente: úbere inchado e tenso, vulva inchada e com muco, inquietação, separação das outras vacas.</li>
+    <li><strong>Parto normal:</strong> a maioria das vacas parem sem ajuda. Observe de longe. O parto normal dura 30 minutos a 2 horas desde que o bezerro começa a aparecer. Não intervenha se correr normalmente.</li>
+    <li><strong>Quando intervir:</strong> se a vaca estiver com fortes contrações por mais de 2 horas sem progresso, ou se o bezerro aparecer em posição anormal (apenas uma pata, cabeça sem patas, traseiro primeiro sem as patas traseiras), chame veterinário ou ajude manualmente com mãos limpas e lubrificante.</li>
+    <li><strong>Após o nascimento:</strong>
+      <ol>
+        <li>O bezerro deve respirar e sacudir a cabeça nos primeiros 30 segundos.</li>
+        <li>Se não respirar: limpe muco do nariz e boca, esfregue o tórax vigorosamente, agite a cabeça para baixo para drenar.</li>
+        <li>Deixe a vaca lamber o bezerro — o laminhar estimula a circulação e cria vínculo.</li>
+        <li>Desinfecte o umbigo: mergulhe em tintura de iodo 7% até à base. Repita 3 vezes por dia durante 3 dias. Umbigo infectado é causa número 1 de mortalidade neonatal.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <h3>O Colostro — A Primeira e Mais Importante Refeição</h3>
+
+  <p>O colostro é o primeiro leite da vaca após o parto — grosso, amarelado e rico em anticorpos. Um bezerro que não recebe colostro nas primeiras 6 horas de vida fica sem defesas imunológicas e morre facilmente de qualquer infecção. <strong>Garantir que o bezerro mamou colostro nas primeiras 2 a 4 horas é a acção mais importante que pode fazer.</strong></p>
+
+  <ul>
+    <li>Se o bezerro não conseguir mamar sozinho (prematuro, fraco, vaca não deixa): ordene o colostro e dê com mamadeira ou sonda gástrica.</li>
+    <li>Quantidade mínima nas primeiras 6 horas: 10% do peso do bezerro em colostro. Um bezerro de 30 kg precisa de pelo menos 3 litros de colostro.</li>
+    <li>O colostro pode ser congelado e conservado por até 12 meses. Tenha sempre reserva de colostro congelado de partos anteriores para emergências.</li>
+  </ul>
+
+  <h3>Primeiras Semanas de Vida</h3>
+
+  <h4>Semanas 1 a 4</h4>
+  <ul>
+    <li>O bezerro mama a vaca directamente — 4 a 5 vezes por dia.</li>
+    <li>Comece a oferecer agua limpa a partir do 5.º dia — muitos produtores ignoram isto e os bezerros ficam desidratados.</li>
+    <li>Ofereça ração de arranque (concentrado de bezerro) a partir da 2.ª semana — mesmo que não coma muito, estimula o desenvolvimento do rúmen.</li>
+    <li>Observe diariamente: o bezerro deve estar activo, de olhos brilhantes, pelo liso, orelhas erectas. Orelhas baixas, bezerro parado, fezes líquidas são sinais de doença.</li>
+  </ul>
+
+  <h4>Diarreia Neonatal — Principal Causa de Morte de Bezerros em Angola</h4>
+  <p>A diarreia no bezerro jovem pode matar em 12 a 48 horas por desidratação. Causas: rotavírus, coronavírus, Escherichia coli, Salmonella, deficiência de colostro.</p>
+
+  <p><strong>Tratamento imediato:</strong></p>
+  <ol>
+    <li>Forneça soro oral (electrólitos) — faça em casa: 1 litro de agua, 5 g de sal de cozinha, 20 g de açúcar, 2,5 g de bicarbonato de sódio. Dê de 2 em 2 horas pela mamadeira.</li>
+    <li>Isole o bezerro doente dos outros.</li>
+    <li>Não interrompa o leite materno — a vaca continua a amamentar.</li>
+    <li>Se a diarreia tiver sangue ou o bezerro estiver muito fraco, chame o veterinário para antibiótico e soro intravenoso.</li>
+  </ol>
+
+  <h3>Desmame</h3>
+
+  <p>O desmame — separação definitiva do bezerro da vaca — deve ocorrer entre os 6 e os 8 meses de idade no sistema de cria com aleitamento natural. Bezerros mais precoces podem ser desmamados aos 3 a 4 meses em sistemas com bom suprimento de concentrado (desmame precoce).</p>
+
+  <h4>Desmame precoce (60–90 dias) — vantagens</h4>
+  <ul>
+    <li>A vaca retorna ao cio mais cedo, reduzindo o intervalo entre partos</li>
+    <li>Permite produção de leite comercial em vacas leiteiras</li>
+    <li>O bezerro come mais concentrado e pasto, desenvolvendo o rúmen mais rápido</li>
+  </ul>
+
+  <h4>Como realizar o desmame com menor stress</h4>
+  <ol>
+    <li>Separe os bezerros das vacas fisicamente mas mantendo contacto visual e auditivo por 3 a 5 dias.</li>
+    <li>Garanta que os bezerros desmamados têm acesso a pasto de boa qualidade, concentrado e água abundante.</li>
+    <li>Observe os bezerros diariamente nas primeiras 2 semanas — o stress do desmame baixa as defesas e aumenta a susceptibilidade a doenças respiratórias.</li>
+  </ol>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 8 ═══ -->
+<section class="capitulo" id="cap8">
+  <p class="label-cap">Capítulo 08</p>
+  <h2>Vacinação Obrigatória em Angola — Calendário Completo</h2>
+  <p class="cap-subtitulo">A vacinação é o investimento mais barato por cabeça com o maior retorno possível</p>
+
+  <p>Angola tem um programa nacional de vacinação bovina coordenado pelo MINAGRIP e pelos Serviços de Veterinária Provinciais. Algumas vacinas são de carácter obrigatório por lei — a sua omissão pode resultar em multas, embargo da exploração e proibição de transitar ou comercializar animais.</p>
+
+  <p>Além das obrigatórias, existem vacinas altamente recomendadas que o produtor responsável deve incluir no calendário da sua exploração. O custo total de um programa de vacinação completo por animal por ano é muito inferior ao custo de tratar (ou perder) um único animal doente.</p>
+
+  <h3>Vacinas Obrigatórias em Angola</h3>
+
+  <h4>1. Febre Aftosa (Obrigatória por Lei)</h4>
+  <p>A febre aftosa é a doença bovina de maior impacto económico no mundo. Angola é periodicamente afectada por focos vindos das fronteiras. A vacinação é obrigatória, geralmente em campanhas organizadas pelos Serviços de Veterinária Provinciais, mas o produtor deve garantir que os seus animais estão vacinados mesmo fora das campanhas.</p>
+  <ul>
+    <li><strong>Frequência:</strong> 2 vezes por ano (a cada 6 meses)</li>
+    <li><strong>Animais:</strong> todos os bovinos acima de 3 meses</li>
+    <li><strong>Via:</strong> subcutânea (sob a pele) — não intramuscular</li>
+    <li><strong>Nota:</strong> a vacina deve cobrir os serotipos circulantes em Angola (O, A e SAT) — verificar com o veterinário local</li>
+  </ul>
+
+  <h4>2. Carbúnculo Sintomático (Gangrena Gasosa)</h4>
+  <p>Doença fatal causada pela bactéria Clostridium chauvoei. Mata animais jovens (6 meses a 2 anos) em 24 a 48 horas. Comum em solos ricos em matéria orgânica e após chuvas intensas.</p>
+  <ul>
+    <li><strong>Frequência:</strong> 1 vez por ano, com reforço nos jovens</li>
+    <li><strong>Animais prioritários:</strong> bezerros a partir dos 3 meses e recém desmamados</li>
+    <li><strong>Via:</strong> subcutânea</li>
+  </ul>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Vacina</th><th>Doença</th><th>Frequência</th><th>Animais</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Aftosa</td><td>Febre Aftosa</td><td>2× por ano</td><td>Todos &gt; 3 meses</td><td>Obrigatória</td></tr>
+        <tr><td>Carbúnculo Sintomático</td><td>Gangrena Gasosa</td><td>1× por ano</td><td>Jovens 3m–2 anos</td><td>Obrigatória</td></tr>
+        <tr><td>Brucelose (fêmeas)</td><td>Brucelose</td><td>1× (dose única)</td><td>Fêmeas 3–8 meses</td><td>Obrigatória (fêmeas)</td></tr>
+        <tr><td>Raiva</td><td>Raiva bovina</td><td>1× por ano</td><td>Todos</td><td>Recomendada</td></tr>
+        <tr><td>Clostridial polivalente</td><td>Várias clostridioses</td><td>1× por ano</td><td>Todos</td><td>Recomendada</td></tr>
+        <tr><td>Rinotraqueíte (IBR)</td><td>Vírus respiratório</td><td>1× por ano</td><td>Reprodutores</td><td>Recomendada</td></tr>
+        <tr><td>Leptospirose</td><td>Leptospirose</td><td>2× por ano</td><td>Reprodutores e fêmeas</td><td>Recomendada</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Calendário Anual de Vacinação</h3>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Mês</th><th>Vacinações a Realizar</th><th>Observações</th></tr></thead>
+      <tbody>
+        <tr><td>Janeiro</td><td>Aftosa (1ª dose do ano)</td><td>Início do ano, antes da estação quente intensa</td></tr>
+        <tr><td>Fevereiro</td><td>Brucelose (bezerras 3–8 meses)</td><td>Dose única em toda a vida — registar com marcação</td></tr>
+        <tr><td>Março</td><td>Carbúnculo sintomático</td><td>Incluir todos os animais jovens</td></tr>
+        <tr><td>Abril</td><td>Raiva + Clostridial polivalente</td><td>Antes da época seca</td></tr>
+        <tr><td>Julho</td><td>Aftosa (2ª dose do ano)</td><td>A cada 6 meses após a 1ª</td></tr>
+        <tr><td>Agosto</td><td>Leptospirose + IBR (reprodutores)</td><td>Preparação para a estação de monta</td></tr>
+        <tr><td>Setembro</td><td>Reforço bezerros (carbúnculo + clostridioses)</td><td>Bezerros nascidos nesse ano</td></tr>
+        <tr><td>Outubro</td><td>Revisão geral do calendário</td><td>Verificar animais que faltaram e completar</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Boas Práticas de Vacinação</h3>
+
+  <ol>
+    <li><strong>Conservação da vacina:</strong> Todas as vacinas bovinas devem ser conservadas entre 2°C e 8°C. Uma vacina mal conservada (quente ou congelada) não protege. Use caixas de isopor com gelo durante o transporte e a aplicação no campo.</li>
+    <li><strong>Agulhas:</strong> Use sempre agulhas novas ou esterilizadas para cada animal — agulhas reutilizadas transmitem doenças entre animais.</li>
+    <li><strong>Vacinar apenas animais saudáveis:</strong> animais doentes, com febre ou muito fracos não desenvolvem imunidade adequada à vacina.</li>
+    <li><strong>Registar todas as vacinações:</strong> data, vacina, lote, fabricante e número de animais vacinados. Este registo é exigido pelas autoridades veterinárias.</li>
+    <li><strong>Respeitar o prazo de carência:</strong> algumas vacinas têm período de carência para o abate — verifique sempre a bula.</li>
+    <li><strong>Observação pós-vacinal:</strong> mantenha os animais em observação por 30 minutos após a vacinação — reacções alérgicas graves (anafilaxia) podem ocorrer raramente e exigem adrenalina imediata.</li>
+  </ol>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 9 ═══ -->
+<section class="capitulo" id="cap9">
+  <p class="label-cap">Capítulo 09</p>
+  <h2>Doenças Mais Comuns — Febre Aftosa, Carbúnculo, Tristeza Parasitária</h2>
+  <p class="cap-subtitulo">Reconhecer a doença a tempo pode ser a diferença entre tratar e perder o animal</p>
+
+  <p>Um pecuarista experiente não precisa de ser veterinário, mas precisa de saber reconhecer os sinais das doenças mais comuns no seu rebanho. O diagnóstico precoce salva animais e evita a propagação para o resto do lote. Este capítulo descreve as doenças de maior impacto em Angola — os seus sinais, a sua prevenção e o seu tratamento.</p>
+
+  <h3>1. Febre Aftosa</h3>
+
+  <p>A febre aftosa é causada por um vírus (Aphtovirus) que afecta todos os ungulados — bovinos, caprinos, ovinos e suínos. É a doença de maior impacto económico na pecuária bovina mundial e continua a representar um risco real para Angola, especialmente nas regiões fronteiriças.</p>
+
+  <h4>Sinais clínicos</h4>
+  <ul>
+    <li>Febre alta repentina (40–41°C)</li>
+    <li>Bolhas (vesículas) na língua, lábios, gengivas e espaços interdigitais (entre os dedos)</li>
+    <li>Salivação excessiva, espuma na boca</li>
+    <li>Claudicação (coxeio) — bolhas nos pés causam dor intensa</li>
+    <li>Queda abrupta na produção de leite</li>
+    <li>Recusa em comer</li>
+    <li>Em bezerros jovens: mortalidade alta mesmo sem vesículas visíveis (lesão cardíaca)</li>
+  </ul>
+
+  <h4>O que fazer</h4>
+  <ol>
+    <li><strong>Isole imediatamente</strong> todos os animais com sinais suspeitos.</li>
+    <li><strong>Notifique os Serviços de Veterinária provinciais</strong> — a aftosa é de notificação obrigatória em Angola.</li>
+    <li>Não transporte nem comercialize animais do lote afectado.</li>
+    <li>Desinfecte o curral com cal virgem (cal viva) ou hipoclorito de sódio 2%.</li>
+    <li>O tratamento é sintomático (antibióticos para prevenir infecções secundárias, anti-inflamatórios, limpeza das lesões com antisséptico) — não há antiviral.</li>
+    <li>A maioria dos adultos recupera em 2 a 3 semanas, mas a perda de produção pode persistir meses.</li>
+  </ol>
+
+  <h3>2. Carbúnculo Sintomático (Gangrena Gasosa)</h3>
+
+  <p>Causada pela bactéria Clostridium chauvoei, presente nos solos angolanos. Afecta principalmente bovinos jovens entre 6 meses e 2 anos. Mata em 24 a 48 horas se não tratada imediatamente.</p>
+
+  <h4>Sinais clínicos</h4>
+  <ul>
+    <li>Animal jovem que era saudável, de repente coxeia ou está prostrado</li>
+    <li>Inchaço quente e crepitante (faz som de bolhas ao pressionar) na nádega, anca, ombro ou pescoço</li>
+    <li>Febre alta</li>
+    <li>O animal morre em poucas horas se não tratar</li>
+  </ul>
+
+  <h4>Tratamento (urgente)</h4>
+  <ol>
+    <li>Penicilina G cristalina em dose alta — consulte o veterinário para dosagem correcta por peso.</li>
+    <li>Anti-inflamatório (flunixina meglumina ou ketoprofeno).</li>
+    <li>Se o inchaço for acessível, o veterinário pode drenar cirurgicamente.</li>
+    <li>Mesmo com tratamento, a mortalidade é alta — a prevenção pela vacina é muito mais eficaz.</li>
+  </ol>
+
+  <h3>3. Tristeza Parasitária (Babesiose e Anaplasmose)</h3>
+
+  <p>A tristeza parasitária é o conjunto de doenças transmitidas pelo carrapato — principalmente Babesia bovis, Babesia bigemina (que causam babesiose) e Anaplasma marginale (que causa anaplasmose). É endémica em grande parte de Angola e causa perdas enormes em animais sem imunidade adquirida ou vacina.</p>
+
+  <h4>Sinais clínicos</h4>
+  <ul>
+    <li><strong>Babesiose:</strong> febre alta (41–42°C), anemia grave (mucosas brancas), urina escura (hemoglobinúria — "mijo vermelho"), fraqueza extrema, mortalidade alta se não tratada</li>
+    <li><strong>Anaplasmose:</strong> anemia progressiva, icterícia (mucosas amarelas), perda de peso, não tem hemoglobinúria</li>
+  </ul>
+
+  <h4>Tratamento</h4>
+  <ul>
+    <li><strong>Babesiose:</strong> Imidocarb dipropionato (Imizol) — injeção subcutânea, muito eficaz se dado cedo</li>
+    <li><strong>Anaplasmose:</strong> Oxitetraciclina ou Doxiciclina — curso de 5 a 7 dias</li>
+    <li>Suporte: vitaminas do complexo B, ferro injectável, fornecer água e alimento de fácil digestão</li>
+  </ul>
+
+  <h3>4. Brucelose</h3>
+
+  <p>Causada pela bactéria Brucella abortus, a brucelose causa abortos em massa nos rebanhos bovinos e é também uma zoonose — transmite ao ser humano pelo leite não pasteurizado e pelo contacto directo com produtos do aborto.</p>
+
+  <h4>Sinais</h4>
+  <ul>
+    <li>Aborto nas últimas semanas de gestação (7.º ao 9.º mês)</li>
+    <li>Retenção de placenta</li>
+    <li>Infertilidade</li>
+    <li>Orquite (inflamação testicular) nos touros</li>
+  </ul>
+
+  <div class="caixa-perigo">
+    <strong class="rotulo">Risco para o Ser Humano</strong>
+    O produto do aborto (feto, placenta, fluidos) de uma vaca brucelosa é altamente infectante para o ser humano. Use luvas e máscara ao manipular qualquer aborto bovino. Nunca beba leite cru de rebanho não testado para brucelose.
+  </div>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 10 ═══ -->
+<section class="capitulo" id="cap10">
+  <p class="label-cap">Capítulo 10</p>
+  <h2>Controlo de Parasitas Internos e Externos</h2>
+  <p class="cap-subtitulo">Os parasitas roubam silenciosamente a produção — controle-os antes de ver os sinais</p>
+
+  <p>Os parasitas são responsáveis por perdas de 20 a 40% na produtividade dos rebanhos em Angola, na maioria das vezes sem que o produtor se aperceba. O animal com parasitose não morre necessariamente — simplesmente cresce menos, produz menos e é mais susceptível a doenças. É um roubo silencioso.</p>
+
+  <h3>Parasitas Externos (Ectoparasitas)</h3>
+
+  <h4>O Carrapato — Principal Problema em Angola</h4>
+  <p>O carrapato (Rhipicephalus microplus e outras espécies) é o ectoparasita mais importante dos bovinos em Angola. Além de sugar sangue directamente (uma infestação pesada pode causar anemia severa), o carrapato é o vetor da tristeza parasitária (babesiose e anaplasmose), que mata animais sem imunidade.</p>
+
+  <h4>Como controlar o carrapato</h4>
+  <ol>
+    <li><strong>Banho carrapaticida:</strong> a aspersão com produto carrapaticida (Amitraz, Cipermetrina, Deltametrina — disponíveis em lojas veterinárias angolanas) é o método mais eficaz. Frequência: de acordo com a pressão de infestação — na época chuvosa (alta infestação), a cada 14–21 dias. Na seca, a cada 30–45 dias.</li>
+    <li><strong>Método correcto:</strong> molhe o animal completamente — pescoço, orelhas, barriga, virilha, períneo, espaços interdigitais. São os sítios onde o carrapato se esconde. Um animal aspergido superficialmente tem carrapatos nas partes não tratadas que se multiplicam.</li>
+    <li><strong>Rotação de princípio activo:</strong> use produtos de famílias químicas diferentes alternadamente para evitar resistência. Não use o mesmo produto por mais de 2 anos consecutivos.</li>
+    <li><strong>Carrapaticida "pour-on":</strong> produto aplicado na linha do dorso que se distribui por toda a pele. Mais prático que o banho, mas menos eficaz em infestações pesadas.</li>
+    <li><strong>Selecção genética:</strong> raças zebuínas são naturalmente mais resistentes ao carrapato. Em regiões de alta infestação, mantenha predominância de sangue zebu.</li>
+  </ol>
+
+  <h4>Outras Moscas e Insectos</h4>
+  <ul>
+    <li><strong>Mosca dos chifres (Haematobia irritans):</strong> fica permanentemente nos animais, pica centenas de vezes por dia. Use inseticida pour-on ou colares impregnados.</li>
+    <li><strong>Berne (Dermatobia hominis):</strong> larva de mosca que se desenvolve sob a pele formando "toco". Extraia manualmente pressionando de baixo para cima, ou aplique ivermectina injectável que mata as larvas.</li>
+    <li><strong>Tsé-tsé (Glossina sp.):</strong> presente em algumas regiões do norte e leste de Angola, transmite a tripanossomíase (doença do sono bovina). Use repelentes e redes de captura.</li>
+  </ul>
+
+  <h3>Parasitas Internos (Endoparasitas)</h3>
+
+  <h4>Verminose (Helmintos Gastrointestinais)</h4>
+  <p>Os vermes gastrointestinais (Haemonchus, Ostertagia, Cooperia e outros) são a principal parasitose interna dos bovinos em Angola, especialmente em animais jovens e em regiões húmidas. Causam diarreia, anemia, perda de peso e em infestações graves, morte.</p>
+
+  <h4>Controlo estratégico de vermes</h4>
+  <ol>
+    <li><strong>Não vermifugue em massa sem diagnóstico:</strong> a abordagem correcta em 2026 é o tratamento selectivo — apenas animais com infestação clínica ou alta carga parasitária. Isso evita resistência e reduz custos.</li>
+    <li><strong>Exame de fezes (OPG):</strong> peça ao veterinário para fazer contagem de ovos nas fezes (OPG — ovos por grama de fezes). Animais com OPG alto precisam de tratamento. Animais com OPG baixo não precisam.</li>
+    <li><strong>Anti-helmínticos disponíveis em Angola:</strong> Ivermectina (também combate carrapato e berne), Albendazol, Levamisol, Closantel (eficaz contra Haemonchus). Rotacione princípios activos para evitar resistência.</li>
+    <li><strong>Vermifugação estratégica sem diagnóstico:</strong> se não tiver acesso a exame de fezes, trate pelo menos: vacas 30 dias antes do parto, bezerros ao desmame, animais visivelmente magros com pêlo sem brilho.</li>
+    <li><strong>Rotação de pastagens:</strong> larvas de vermes no pasto morrem sem hospedeiro em 3 a 4 semanas. Um piquete que fica 30 dias sem gado tem carga parasitária muito reduzida.</li>
+  </ol>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Parasita</th><th>Tipo</th><th>Dano Principal</th><th>Controlo</th><th>Produto Angola</th></tr></thead>
+      <tbody>
+        <tr><td>Rhipicephalus (carrapato)</td><td>Externo</td><td>Anemia + transmissão de tristeza</td><td>Banho carrapaticida</td><td>Amitraz, Cipermetrina</td></tr>
+        <tr><td>Berne</td><td>Externo</td><td>Lesão de pele, stress</td><td>Ivermectina / extracção manual</td><td>Ivomec injectável</td></tr>
+        <tr><td>Mosca dos chifres</td><td>Externo</td><td>Stress, queda de produção</td><td>Pour-on inseticida</td><td>Deltametrina pour-on</td></tr>
+        <tr><td>Haemonchus (verme)</td><td>Interno</td><td>Anemia grave</td><td>Closantel / Ivermectina</td><td>Closamectin</td></tr>
+        <tr><td>Cooperia / Ostertagia</td><td>Interno</td><td>Diarreia, perda de peso</td><td>Albendazol / Levamisol</td><td>Vermilab, Levamisol</td></tr>
+        <tr><td>Fasciola (fasciolose)</td><td>Interno</td><td>Dano hepático severo</td><td>Closantel / Triclabendazol</td><td>Closivet</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 11 ═══ -->
+<section class="capitulo" id="cap11">
+  <p class="label-cap">Capítulo 11</p>
+  <h2>Manejo Sanitário Diário</h2>
+  <p class="cap-subtitulo">A saúde do rebanho constrói-se todos os dias, não só quando o animal adoece</p>
+
+  <p>O manejo sanitário diário é a rotina que mantém o rebanho saudável, detecta problemas cedo e previne a propagação de doenças. Um produtor que observa os seus animais todos os dias aprende a distinguir o normal do anormal e age antes que o problema se agrave.</p>
+
+  <h3>Rotina Diária Recomendada</h3>
+
+  <h4>Manhã (6h–8h)</h4>
+  <ol>
+    <li><strong>Observação geral do rebanho:</strong> passe pelos animais e observe atentamente. Procure: animais prostrados, com postura anormal, separados do grupo, com secreção nasal ou ocular, coxeando, com pêlo arrepiado ou com barriga inchada.</li>
+    <li><strong>Verificação da água:</strong> os bebedouros estão cheios e limpos? A água está límpida? Reponha e limpe se necessário.</li>
+    <li><strong>Contagem rápida:</strong> em rebanhos até 50 animais, conte-os mentalmente. Um animal que desapareceu pode estar doente ou perdido.</li>
+    <li><strong>Verificação do sal mineral:</strong> os cochos de sal estão abastecidos?</li>
+  </ol>
+
+  <h4>Tarde (16h–17h)</h4>
+  <ol>
+    <li>Nova observação geral — doenças que não eram visíveis de manhã podem manifestar-se ao longo do dia.</li>
+    <li>Verificação dos animais em tratamento — aplique medicamentos conforme prescrito, observe resposta ao tratamento.</li>
+    <li>Verificação das vacas em final de gestação na maternidade.</li>
+    <li>Para rebanhos leiteiros: ordenha da tarde.</li>
+  </ol>
+
+  <h3>Sinais de Alerta — O que Observar em Cada Animal</h3>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Sinal</th><th>Possível Problema</th><th>Acção</th></tr></thead>
+      <tbody>
+        <tr><td>Temperatura rectal &gt; 39,5°C</td><td>Infecção/doença inflamatória</td><td>Identificar causa, chamar veterinário</td></tr>
+        <tr><td>Animal deitado sem levantar</td><td>Hipocalcemia, doença grave</td><td>Urgente — veterinário imediato</td></tr>
+        <tr><td>Barriga muito inchada (lado esquerdo)</td><td>Timpanismo (empanzinamento)</td><td>Urgente — trocar de pasto, trocarterizar</td></tr>
+        <tr><td>Urina escura (vermelha)</td><td>Babesiose</td><td>Urgente — Imizol injectável</td></tr>
+        <tr><td>Mucosas brancas</td><td>Anemia grave (babesiose, vermes)</td><td>Diagnóstico + tratamento específico</td></tr>
+        <tr><td>Coxeio</td><td>Aftosa, podridão do casco, trauma</td><td>Examinar o casco, tratar conforme</td></tr>
+        <tr><td>Secreção nasal e tosse</td><td>Pneumonia, IBR</td><td>Antibiótico + anti-inflamatório</td></tr>
+        <tr><td>Diarreia em bezerro</td><td>Infecção gastrointestinal</td><td>Soro oral, isolamento, veterinário</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Higiene das Instalações</h3>
+
+  <h4>Curral e Aprisco</h4>
+  <ul>
+    <li>Remova estrume e urina acumulados pelo menos 2 vezes por semana — em época de chuva, diariamente.</li>
+    <li>Lençóis de lama no curral são focos de bactérias, parasitas e vermes. Mantenha o piso seco.</li>
+    <li>Aplique cal hidratada (pó de cal) no piso do curral mensalmente — desinfecção natural e absorção de humidade.</li>
+    <li>Após doença no rebanho: desinfecção completa com solução de hipoclorito 2% ou cal viva.</li>
+  </ul>
+
+  <h4>Equipamentos de Manejo</h4>
+  <ul>
+    <li>Agulhas, seringas e equipamento de ordenha — lave com água quente e detergente após cada uso.</li>
+    <li>Tronco de contenção — lave com mangueira após cada sessão de manejo.</li>
+    <li>Tesouras, bisturis e instrumentos cirúrgicos — esterilize com álcool 70% ou autoclave.</li>
+  </ul>
+
+  <h3>Registos Sanitários — Obrigação e Ferramenta de Gestão</h3>
+
+  <p>Mantenha um caderno ou ficha por animal com: data de nascimento, raça, mãe e pai, vacinações (data, produto, lote), tratamentos realizados (data, produto, dose, motivo), pesagens, e data de descarte ou abate.</p>
+
+  <p>Com este registo, você sabe quais os animais que adoecem mais (candidatos ao descarte), quais as vacinas em atraso, e quais os meses de maior problema sanitário no seu rebanho. Este conhecimento vale mais do que qualquer conselho genérico.</p>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 12 ═══ -->
+<section class="capitulo" id="cap12">
+  <p class="label-cap">Capítulo 12</p>
+  <h2>Produção de Leite — Ordenha Correcta e Higiene</h2>
+  <p class="cap-subtitulo">Leite de qualidade começa antes da ordenha e termina depois dela</p>
+
+  <p>A produção leiteira em Angola tem enorme potencial e um mercado urbano crescente e subabastecido. Luanda consome enormes quantidades de leite UHT importado — um produto que o produtor angolano poderia substituir, mesmo que parcialmente, com leite fresco local vendido directamente às famílias, aos restaurantes e às unidades de processamento artesanal.</p>
+
+  <h3>Anatomia do Úbere e Fisiologia da Lactação</h3>
+
+  <p>O úbere tem quatro quartos independentes, cada um com um teto. O leite é produzido entre as ordenhas e armazenado nos alvéolos. A "descida do leite" (ejeição) é desencadeada pelo estímulo do bezerro ou da ordenha — é um reflexo hormonal (oxitocina) que leva 60 a 90 segundos a iniciar. Se a vaca estiver stressada (ruído, dor, presença de estranhos), a descida do leite inibe-se e a ordenha é improdutiva.</p>
+
+  <h3>Rotina de Ordenha</h3>
+
+  <h4>Antes da ordenha</h4>
+  <ol>
+    <li>Sempre no mesmo horário — a vaca produz mais quando a ordenha é consistente. Variação de mais de 1 hora perturba o ciclo produtivo.</li>
+    <li>Reúna a vaca calmamente — gritos, correrias e batidas reduzem a produção.</li>
+    <li>Lave as mãos do ordenhador com água e sabão.</li>
+    <li>Limpe o úbere com pano húmido e morno (água a 45°C) — o calor estimula a descida do leite e limpa impurezas.</li>
+    <li>Seque o úbere com pano limpo individual ou papel descartável.</li>
+    <li>Faça o teste da caneca de fundo escuro: ordene os primeiros jatos de cada teto numa caneca de fundo preto. Observe a presença de grumos, filamentos ou leite aquoso — sinais de mastite.</li>
+  </ol>
+
+  <h4>Durante a ordenha</h4>
+  <ol>
+    <li>Ordene cada teto com movimentos completos de cima para baixo — sem puxões, sem movimentos parciais.</li>
+    <li>Não demita mais de 8 a 10 minutos por teto — o reflexo da oxitocina dura cerca de 10 minutos.</li>
+    <li>A ordenha completa é fundamental — leite residual no úbere aumenta o risco de mastite e reduz a produção nas ordenhas seguintes.</li>
+    <li>Em vacas leiteiras de dupla ordenha: ordene de manhã e à tarde, com intervalo de 10 a 12 horas.</li>
+  </ol>
+
+  <h4>Após a ordenha</h4>
+  <ol>
+    <li><strong>Pós-dipping:</strong> mergulhe cada teto em solução iodada 0,5% ou clorhexidina 0,5% logo após ordenhar. Esta prática reduz a incidência de mastite em 50 a 70%.</li>
+    <li>Dê alimento (concentrado) à vaca imediatamente após a ordenha — isso mantém-na de pé por 30 minutos enquanto o esfíncter do teto se fecha, impedindo a entrada de bactérias.</li>
+    <li>Lave todo o equipamento de ordenha com água fria primeiro (remove proteínas do leite), depois com água quente e detergente, depois com solução ácida para remover depósitos minerais.</li>
+  </ol>
+
+  <h3>Mastite — A Doença Número Um das Vacas Leiteiras</h3>
+
+  <p>A mastite é a inflamação do úbere causada por bactérias que entram pelo canal do teto. É a doença que mais prejuízo causa nas explorações leiteiras em todo o mundo. Em Angola, está subdiagnosticada — muitos produtores consideram "normal" a vaca dar leite com grumos.</p>
+
+  <ul>
+    <li><strong>Mastite clínica:</strong> úbere quente, inchado e doloroso. Leite com grumos, filamentos ou sangue. Vaca recusa ser ordenhada.</li>
+    <li><strong>Mastite subclínica:</strong> sem sinais visíveis, mas o leite tem alta contagem de células somáticas — detectável pelo Teste CMT (California Mastitis Test), simples e barato.</li>
+  </ul>
+
+  <p><strong>Tratamento:</strong> Antibiótico intramamário (injectado directamente no teto) e sistémico para casos graves. Deve ser prescrito pelo veterinário. O leite dos tetos tratados tem período de carência e não pode ser vendido ou consumido durante o tratamento.</p>
+
+  <h3>Conservação do Leite sem Refrigeração</h3>
+
+  <p>Em Angola, a ausência de cadeia de frio é um dos maiores desafios da venda de leite. Soluções práticas:</p>
+
+  <ul>
+    <li>Vender o leite fresco nas primeiras 4 horas após a ordenha — antes que as bactérias se multipliquem a nível perigoso.</li>
+    <li>Pasteurização caseira simples: aquecer o leite a 63°C por 30 minutos (pasteurização LTLT) em panela com termómetro. Depois arrefecer rapidamente em água fria.</li>
+    <li>Transformar o excedente em iogurte, manteiga ou queijo fresco — produtos com valor acrescentado e maior durabilidade.</li>
+  </ul>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 13 ═══ -->
+<section class="capitulo" id="cap13">
+  <p class="label-cap">Capítulo 13</p>
+  <h2>Engorda para Corte — Técnicas e Tempo</h2>
+  <p class="cap-subtitulo">Transformar pasto e ração em carne com a maior eficiência possível</p>
+
+  <p>A engorda bovina — o processo de alimentação intensificada com o objectivo de aumentar o peso e a cobertura de gordura para o abate — é onde o produtor angolano pode diferenciar-se mais do gado tradicional. Um bovino abatido após engorda correcta tem rendimento de carcaça 8 a 12% superior ao animal extensivo, e o quilo da carne tem mais valor porque é mais macio e mais marmorizado.</p>
+
+  <h3>Tipos de Engorda</h3>
+
+  <h4>Engorda a Pasto (Semi-Intensiva)</h4>
+  <p>O animal é mantido em pastagem cultivada de alta qualidade (Brachiaria brizantha, Panicum maximum) com suplementação estratégica de sal mineral e concentrado proteico apenas na seca. É o sistema mais adequado para a maioria dos produtores angolanos — custo baixo, sem necessidade de infraestrutura cara.</p>
+
+  <ul>
+    <li>Ganho de peso esperado: 500–800 g/dia na época das chuvas; 200–400 g/dia na seca com suplementação</li>
+    <li>Tempo até o abate (Nelore de boa condição): 30 a 36 meses do nascimento</li>
+    <li>Peso de abate típico: 450–550 kg</li>
+  </ul>
+
+  <h4>Confinamento (Intensivo)</h4>
+  <p>Os animais ficam em piquetes fechados e recebem toda a alimentação no cocho — sem pastagem. Permite o máximo controlo nutricional e os maiores ganhos de peso diários, mas exige alto investimento em ração, infraestrutura e gestão técnica.</p>
+
+  <ul>
+    <li>Ganho de peso esperado: 1,0 a 1,5 kg/dia com boa dieta</li>
+    <li>Tempo de confinamento típico: 90 a 120 dias antes do abate</li>
+    <li>Peso de entrada no confinamento: 350–400 kg (novilhos de 18–24 meses)</li>
+    <li>Peso de abate: 470–550 kg</li>
+  </ul>
+
+  <h3>Dieta de Confinamento — Formulação Básica para Angola</h3>
+
+  <p>A dieta de confinamento deve ter:</p>
+  <ul>
+    <li>50 a 60% de volumoso (silagem de milho ou capim, feno, bagaço de cana)</li>
+    <li>40 a 50% de concentrado (milho moído, torta de algodão ou soja, farelo de trigo, sal mineral)</li>
+    <li>Proteína bruta total: 12 a 14%</li>
+    <li>Energia digestível: mínimo 2,8 Mcal/kg de MS</li>
+  </ul>
+
+  <p>Em Angola, os ingredientes mais acessíveis para o concentrado são: milho moído (energia — disponível no Planalto Central), farelo de trigo (energia + proteína — importado mas disponível), torta de algodão (proteína — disponível em algumas províncias), melaço de cana (energia + palatabilidade).</p>
+
+  <h3>Indicadores de Performance na Engorda</h3>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Indicador</th><th>Valor Alvo (Confinamento)</th><th>O que fazer se for baixo</th></tr></thead>
+      <tbody>
+        <tr><td>Ganho Médio Diário (GMD)</td><td>&gt; 1,0 kg/dia</td><td>Revisar dieta, saúde do animal, adaptação</td></tr>
+        <tr><td>Conversão Alimentar (CA)</td><td>7 a 9 kg ração / kg ganho</td><td>Melhorar qualidade da ração, reduzir desperdício</td></tr>
+        <tr><td>Rendimento de Carcaça</td><td>52–56% do peso vivo</td><td>Melhorar acabamento, raça, dieta</td></tr>
+        <tr><td>Mortalidade no confinamento</td><td>&lt; 1%</td><td>Melhorar manejo sanitário e adaptação</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Período de Adaptação ao Confinamento</h3>
+
+  <p>Quando um animal vindo da pastagem entra no confinamento, o rúmen precisa de adaptar-se gradualmente à dieta de alto concentrado. Uma mudança abrupta causa acidose ruminal — uma condição dolorosa que reduz o consumo e pode matar.</p>
+
+  <ol>
+    <li>Semana 1: 80% volumoso + 20% concentrado</li>
+    <li>Semana 2: 70% volumoso + 30% concentrado</li>
+    <li>Semana 3: 60% volumoso + 40% concentrado</li>
+    <li>Semana 4 em diante: dieta completa (50/50 ou conforme formulação)</li>
+  </ol>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 14 ═══ -->
+<section class="capitulo" id="cap14">
+  <p class="label-cap">Capítulo 14</p>
+  <h2>Abate e Comercialização em Angola</h2>
+  <p class="cap-subtitulo">Do pasto ao talho — os canais de venda disponíveis para o pecuarista angolano</p>
+
+  <p>O circuito de comercialização de bovinos em Angola ainda tem muitas ineficiências que prejudicam tanto o produtor como o consumidor. Entender como funciona este circuito — e como posicionarse dentro dele — é fundamental para maximizar o retorno por animal.</p>
+
+  <h3>Canais de Comercialização</h3>
+
+  <h4>1. Venda em Pé (Animal Vivo) a Intermediário</h4>
+  <p>O canal mais comum em Angola. O produtor vende o animal vivo a um intermediário (chamado "marchante" ou "negociante de gado") que assume o transporte, o abate e a distribuição. É o canal mais simples para o produtor mas o que retorna menor valor — o intermediário fica com 20 a 40% da diferença entre o preço em pé e o preço do talho.</p>
+
+  <h4>2. Venda Directa ao Talho (Matadouro)</h4>
+  <p>O produtor leva o animal ao matadouro municipal ou autorizado, paga a taxa de abate, e vende a carcaça directamente ao talho ou ao retalhista. Maior trabalho logístico mas melhor preço.</p>
+
+  <h4>3. Venda de Carcaça Directamente ao Retalhista</h4>
+  <p>O produtor abate no matadouro e vende as partes da carcaça directamente a vários compradores — talhos, restaurantes, cantinas, supermercados. É o canal com maior retorno mas exige mais capacidade de gestão e relacionamento comercial.</p>
+
+  <h4>4. Integração com Frigoríficos</h4>
+  <p>Frigoríficos industriais em Luanda e em crescimento em outras cidades compram volume e pagam preço diferenciado por animais de qualidade certificada. Exige rastreabilidade, certificado sanitário actualizado e volume consistente.</p>
+
+  <h3>Matadouros em Angola</h3>
+
+  <p>O abate de bovinos é legalmente obrigado a ocorrer em matadouros autorizados pelo Ministério da Agricultura e pelos Serviços de Veterinária. O abate clandestino — ainda comum em áreas rurais — é ilegal, não tem inspeção sanitária e impede a venda em circuitos formais.</p>
+
+  <p>Matadouros activos de referência em Angola incluem o Matadouro Municipal de Luanda (Cacuaco), o Matadouro de Benguela, e instalações municipais em Huambo, Lubango e Malanje. A capacidade instalada é insuficiente para a procura, o que cria oportunidades para investimento privado neste segmento.</p>
+
+  <h3>Documentação Necessária para Transporte e Abate</h3>
+
+  <ul>
+    <li><strong>Guia de Trânsito Animal:</strong> emitida pelos Serviços de Veterinária provinciais. Obrigatória para qualquer movimento de animais entre municípios ou províncias.</li>
+    <li><strong>Certificado Sanitário:</strong> atesta que os animais foram inspeccionados e estão saudáveis para abate.</li>
+    <li><strong>Caderneta de Vacinação:</strong> comprovativo das vacinações obrigatórias em dia.</li>
+    <li><strong>Registo do produtor:</strong> inscrição na Associação de Criadores ou nos Serviços de Veterinária provinciais.</li>
+  </ul>
+
+  <h3>Rendimento de Carcaça — Quanto Vale um Boi em Angola</h3>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Peso Vivo</th><th>Rendimento Carcaça</th><th>Peso Carcaça</th><th>Preço médio/kg carcaça (Luanda)</th><th>Receita Bruta</th></tr></thead>
+      <tbody>
+        <tr><td>400 kg</td><td>52%</td><td>208 kg</td><td>2.500 Kz/kg</td><td>520.000 Kz</td></tr>
+        <tr><td>450 kg</td><td>53%</td><td>238 kg</td><td>2.500 Kz/kg</td><td>595.000 Kz</td></tr>
+        <tr><td>500 kg</td><td>54%</td><td>270 kg</td><td>2.500 Kz/kg</td><td>675.000 Kz</td></tr>
+        <tr><td>550 kg</td><td>55%</td><td>302 kg</td><td>2.500 Kz/kg</td><td>755.000 Kz</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 15 ═══ -->
+<section class="capitulo" id="cap15">
+  <p class="label-cap">Capítulo 15</p>
+  <h2>Cálculo de Custos e Lucro por Cabeça</h2>
+  <p class="cap-subtitulo">Quem não sabe os números não sabe se tem negócio ou tem prejuízo</p>
+
+  <p>Este capítulo apresenta os cálculos reais de custo e lucro para dois sistemas comuns em Angola: o sistema semi-intensivo a pasto e o confinamento de acabamento. Os valores são estimativas baseadas no mercado angolano de 2026 — use-os como referência e adapte à sua realidade específica.</p>
+
+  <h3>Cenário 1 — Cria e Recria Semi-Intensiva (do nascimento ao abate)</h3>
+
+  <p>Vaca Nelore que produz um bezerro por ano. O bezerro é criado até aos 30 meses para abate com ~450 kg.</p>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Item de Custo</th><th>Custo por Bezerro até Abate (Kz)</th></tr></thead>
+      <tbody>
+        <tr><td>Custo proporcional de manutenção da vaca/ano (pastagem, sal, vacinas, vermifugação) × 2,5 anos</td><td>180.000</td></tr>
+        <tr><td>Sal mineral (bezerro + vaca) — 2,5 anos</td><td>45.000</td></tr>
+        <tr><td>Vacinas e medicamentos (bezerro) — 2,5 anos</td><td>35.000</td></tr>
+        <tr><td>Manutenção de infraestrutura e equipamento (proporcional)</td><td>20.000</td></tr>
+        <tr><td>Mão de obra (proporcional por cabeça)</td><td>60.000</td></tr>
+        <tr><td>Taxa de abate e transporte ao matadouro</td><td>25.000</td></tr>
+        <tr><td><strong>Custo Total por Animal</strong></td><td><strong>365.000 Kz</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Receita:</strong> Novilho de 450 kg, rendimento de carcaça 53% = 238 kg de carcaça. Preço médio 2.500 Kz/kg = <strong>595.000 Kz</strong></p>
+
+  <p><strong>Lucro Bruto por Animal:</strong> 595.000 − 365.000 = <strong>230.000 Kz (~230 USD)</strong></p>
+
+  <p><strong>Com um rebanho de 20 vacas produtivas</strong> (taxa de natalidade 70% = 14 bezerros/ano), o lucro anual seria de aproximadamente <strong>3.220.000 Kz</strong>.</p>
+
+  <h3>Cenário 2 — Confinamento de Acabamento (90 dias)</h3>
+
+  <p>Novilho comprado com 380 kg, confinado por 90 dias, ganho de 1,2 kg/dia, abatido com 488 kg.</p>
+
+  <div class="tabela-wrap">
+    <table>
+      <thead><tr><th>Item de Custo</th><th>Valor (Kz)</th></tr></thead>
+      <tbody>
+        <tr><td>Custo de aquisição do novilho (380 kg × 1.400 Kz/kg vivo)</td><td>532.000</td></tr>
+        <tr><td>Alimentação (90 dias × 12 kg MS/dia × 350 Kz/kg MS)</td><td>378.000</td></tr>
+        <tr><td>Vacinas, vermifugação e medicamentos</td><td>18.000</td></tr>
+        <tr><td>Mão de obra e infraestrutura (proporcional)</td><td>30.000</td></tr>
+        <tr><td>Taxa de abate e transporte</td><td>25.000</td></tr>
+        <tr><td><strong>Custo Total</strong></td><td><strong>983.000 Kz</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Receita:</strong> 488 kg × 54% rendimento = 263 kg carcaça × 2.500 Kz = <strong>657.500 Kz</strong></p>
+
+  <div class="caixa-perigo">
+    <strong class="rotulo">Atenção ao Confinamento</strong>
+    No exemplo acima, o confinamento dá prejuízo com estes preços. Isso é real — o confinamento em Angola é viável apenas quando: (1) o produtor cria os seus próprios animais (sem custo de aquisição externo), (2) tem acesso a insumos baratos (milho próprio, bagaço de cana local), ou (3) vende a carcaça por preço premium acima de 3.000 Kz/kg em mercados especializados.
+  </div>
+
+  <div class="caixa-lucro">
+    <strong class="rotulo">A Estratégia Mais Rentável para Angola em 2026</strong>
+    Sistema semi-intensivo de cria + recria a pasto, com suplementação estratégica na seca, raças zebuínas adaptadas, vacinação e controlo parasitário em dia. Venda do novilho em pé ou após abate directo. Neste sistema, a rentabilidade por animal é claramente positiva com gestão correcta.
+  </div>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 16 ═══ -->
+<section class="capitulo" id="cap16">
+  <p class="label-cap">Capítulo 16</p>
+  <h2>Erros Fatais na Criação de Bovinos</h2>
+  <p class="cap-subtitulo">Aprender com os erros dos outros custa muito menos do que cometê-los</p>
+
+  <p>A pecuária bovina em Angola perde milhões de kwanzas por ano por causa de erros que são conhecidos, evitáveis e repetidos. Este capítulo documenta os erros mais graves — aqueles que destroem rebanhos, arruínam investimentos e desmotivam produtores. Leia com atenção e verifique honestamente se algum deles já está a acontecer na sua exploração.</p>
+
+  <h3>Erro 1 — Comprar Animais sem Verificar a Saúde e a Origem</h3>
+
+  <p>Introduzir um animal doente num rebanho saudável pode destruir tudo. Animais comprados em feiras sem certificado sanitário podem trazer febre aftosa, brucelose, tuberculose, carrapatos resistentes e vermes com resistência a medicamentos.</p>
+
+  <p><strong>Regra de ouro:</strong> Todo animal comprado de fora passa por quarentena mínima de 21 a 30 dias em área separada do rebanho principal. Durante este período: verificação de saúde, vacinação e vermifugação completa. Só então integra o rebanho.</p>
+
+  <h3>Erro 2 — Superlotação dos Pastos</h3>
+
+  <p>Colocar mais animais do que o pasto suporta é o caminho mais rápido para destruir a pastagem e empobrecer o rebanho. Em Angola, a superlotação é um problema endémico nos sistemas tradicionais. Uma pastagem de Brachiaria brizantha bem manejada suporta 1 a 1,5 unidades animal por hectare por ano. Acima disso, começa a degradar.</p>
+
+  <p><strong>Solução:</strong> Calcule a capacidade de suporte do pasto antes de expandir o rebanho. Lote = área do pasto (ha) × 1,2 UA/ha. Se tiver mais animais, venda o excedente ou expanda a pastagem.</p>
+
+  <h3>Erro 3 — Não Vermifugar nem Vacinar Regularmente</h3>
+
+  <p>Um rebanho sem programa sanitário perde produtividade gradualmente e quando a doença se manifesta abertamente, já causou prejuízo enorme. Vacinação e vermifugação são custos fixos que devem estar no orçamento da exploração — nunca devem ser cortados por falta de dinheiro, porque o custo de não fazê-los é muito maior.</p>
+
+  <h3>Erro 4 — Não Secar a Vaca Leiteira</h3>
+
+  <p>A vaca leiteira precisa de um período seco de 45 a 60 dias antes do parto seguinte. Vacas que nunca são secas — ordenhas até ao dia do parto — chegam ao parto exaustas, produzem menos leite na lactação seguinte, têm maior incidência de mastite e menores taxas de concepção. <strong>Secar a vaca é obrigatório, não opcional.</strong></p>
+
+  <h3>Erro 5 — Alimentar Mal na Época Seca e Muito na Época das Chuvas</h3>
+
+  <p>Muitos produtores angolanos não suplementam o gado na seca (quando mais precisa) e deixam o gado em pastagens super-abundantes na chuvosa sem nenhum controlo. O resultado é um ciclo de engordar na chuva e emagrecer muito na seca — que é biologicamente ineficiente e economicamente prejudicial. O animal que perde mais de 15% do peso na seca demora meses para recuperar na chuva seguinte.</p>
+
+  <h3>Erro 6 — Negligenciar os Bezerros</h3>
+
+  <p>Os bezerros são o futuro do rebanho e a fonte do lucro dos próximos 2 a 3 anos. Produtores que não garantem colostro, que não desinfectam o umbigo, que não tratam a diarreia neonatal a tempo, perdem 20 a 30% dos bezerros — que é exactamente o mesmo que perder 20 a 30% do lucro futuro.</p>
+
+  <h3>Erro 7 — Usar Antibióticos sem Diagnóstico</h3>
+
+  <p>Aplicar antibiótico em qualquer animal que esteja "mal" sem saber a causa é um desperdício de dinheiro e cria resistência bacteriana. Antibióticos não funcionam contra vírus (como a aftosa), parasitas (como a babesiose) ou deficiências nutricionais. Use antibióticos apenas sob orientação veterinária ou quando há diagnóstico claro de infecção bacteriana.</p>
+
+  <h3>Erro 8 — Não Manter Registos</h3>
+
+  <p>Sem registos, o produtor não sabe: quantos animais tem por categoria, quais vacinaram, qual a taxa de natalidade real, quais os animais mais produtivos, qual o custo real por cabeça. Decisões sem dados são apostas. Um caderno simples de registos transforma a pecuária de intuição em gestão.</p>
+
+  <h3>Erro 9 — Endividar-se para Comprar Muitos Animais de uma Vez</h3>
+
+  <p>A tentação de crescer rápido comprando muitos animais com crédito é perigosa. Animais comprados em número superior à capacidade de gestão e de suporte do pasto resultam em superlotação, queda sanitária e dificuldade de pagamento da dívida. <strong>Cresça com a pastagem, não à frente dela.</strong></p>
+
+  <h3>Erro 10 — Abater o Touro no Momento de Dificuldade Financeira</h3>
+
+  <p>Em momentos de aperto financeiro, o produtor que vende ou abate o touro de reprodução da exploração perde a capacidade reprodutiva por meses ou anos. O touro é um activo produtivo — gera bezerros que geram renda futura. Antes de vender o touro, venda vacas velhas, novilhos de engorda ou outros activos.</p>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+<!-- ═══ CAP 17 ═══ -->
+<section class="capitulo" id="cap17">
+  <p class="label-cap">Capítulo 17</p>
+  <h2>Legislação Básica para Pecuaristas em Angola</h2>
+  <p class="cap-subtitulo">Conhecer a lei protege o produtor e abre portas aos mercados formais</p>
+
+  <p>A actividade pecuária em Angola é regulamentada por um conjunto de leis, decretos e regulamentos emitidos pelo Ministério da Agricultura, Pecuária e Pescas (MINAGRIP) e pelos Serviços de Veterinária Provinciais. O produtor que conhece e cumpre a legislação tem vantagem competitiva: pode aceder a mercados formais, a financiamentos oficiais e está protegido de autuações e embargos.</p>
+
+  <div class="caixa-lei">
+    <strong class="rotulo">Aviso Legal</strong>
+    Este capítulo é um resumo informativo. A legislação angolana é actualizada periodicamente. Consulte sempre um advogado ou os Serviços de Veterinária provinciais para informação legal actualizada antes de tomar decisões jurídicas ou empresariais.
+  </div>
+
+  <h3>Registo do Produtor e da Exploração</h3>
+
+  <p>Toda a exploração pecuária com mais de 5 cabeças de gado deve estar registada nos Serviços de Veterinária do município correspondente. O registo permite:</p>
+  <ul>
+    <li>Emissão de Guias de Trânsito Animal</li>
+    <li>Acesso a campanhas de vacinação gratuita</li>
+    <li>Participação em programas de crédito e apoio do Estado</li>
+    <li>Certificação sanitária para venda em mercados formais</li>
+  </ul>
+
+  <p>O registo é gratuito ou tem custo simbólico na maioria das províncias angolanas. Precisa de apresentar: bilhete de identidade, prova de residência, e descrição da exploração (localização, área, número estimado de animais).</p>
+
+  <h3>Guia de Trânsito Animal</h3>
+
+  <p>A movimentação de bovinos entre municípios ou províncias sem Guia de Trânsito Animal válida é ilegal e pode resultar em apreensão dos animais. A guia deve ser solicitada nos Serviços de Veterinária municipais antes do transporte e inclui:</p>
+  <ul>
+    <li>Identificação do proprietário e da exploração de origem</li>
+    <li>Número, espécie, idade e identificação dos animais transportados</li>
+    <li>Destino do transporte</li>
+    <li>Certificação de vacinação em dia</li>
+    <li>Atestado de saúde dos animais (emitido pelo veterinário oficial)</li>
+  </ul>
+
+  <h3>Vacinação Obrigatória e Notificação de Doenças</h3>
+
+  <p>As vacinas obrigatórias (aftosa, brucelose, carbúnculo) são exigidas por lei em Angola. A omissão da vacinação pode resultar em embargo da exploração e proibição de movimentar ou comercializar animais.</p>
+
+  <p>Determinadas doenças são de notificação obrigatória — o produtor é legalmente obrigado a informar os Serviços de Veterinária quando detectar ou suspeitar de:</p>
+  <ul>
+    <li>Febre Aftosa</li>
+    <li>Brucelose</li>
+    <li>Tuberculose Bovina</li>
+    <li>Carbúnculo Bacteridiano (Antraz)</li>
+    <li>Raiva</li>
+    <li>Tripanossomíase</li>
+  </ul>
+
+  <h3>Abate e Inspecção Sanitária</h3>
+
+  <p>O abate de bovinos para comercialização é obrigatoriamente realizado em matadouros autorizados e sujeito a inspecção veterinária ante-mortem (antes do abate) e post-mortem (após o abate). Carcaças não inspeccionadas não podem ser legalmente comercializadas.</p>
+
+  <p>O abate doméstico para consumo familiar próprio é tolerado em zonas rurais mas não autorizado para fins comerciais.</p>
+
+  <h3>Legislação sobre Uso de Medicamentos Veterinários</h3>
+
+  <ul>
+    <li>Medicamentos veterinários só podem ser comercializados por estabelecimentos autorizados (lojas veterinárias licenciadas).</li>
+    <li>O uso de antibióticos de uso exclusivamente veterinário por pessoal não habilitado é ilegal — aplique sempre sob orientação de médico veterinário.</li>
+    <li>Medicamentos com período de carência não podem ser aplicados em animais próximos do abate. O período de carência é indicado na bula do produto.</li>
+    <li>O descarte de medicamentos veterinários deve ser feito de forma correcta — não deite na água nem no lixo comum.</li>
+  </ul>
+
+  <h3>Acesso a Financiamento — Programas do Estado Angolano</h3>
+
+  <p>O governo angolano mantém programas de apoio à pecuária através do MINAGRIP e do Fundo de Desenvolvimento Agrário (FDA). Para aceder aos financiamentos disponíveis:</p>
+
+  <ol>
+    <li>Registar a exploração nos Serviços de Veterinária municipais.</li>
+    <li>Elaborar um plano de negócios básico (ou pedir apoio ao MINAGRIP local para elaboração).</li>
+    <li>Apresentar a candidatura ao FDA ou ao banco parceiro na sua província.</li>
+    <li>Ter a documentação pessoal em ordem: BI, NIF, comprovativo de residência, título de uso e aproveitamento da terra (DUAT).</li>
+  </ol>
+
+  <blockquote>
+    "O produtor que trabalha na legalidade dorme melhor, vende melhor e cresce mais. A formalização não é uma burocracia — é uma ferramenta de crescimento."
+  </blockquote>
+
+  <h3>Associativismo e Cooperativas</h3>
+
+  <p>O associativismo pecuário é fortemente incentivado pelo governo angolano. Associações de produtores e cooperativas têm acesso facilitado a:</p>
+  <ul>
+    <li>Financiamento colectivo com taxas de juro mais baixas</li>
+    <li>Compra colectiva de insumos (vacinas, medicamentos, sal mineral) com preços melhores</li>
+    <li>Acesso a mercados maiores (supermercados, frigoríficos, exportação) que exigem volume mínimo</li>
+    <li>Assistência técnica da Extensão Rural do MINAGRIP</li>
+    <li>Campanhas de vacinação e controlo sanitário colectivo</li>
+  </ul>
+
+  <p>Em Angola, existem associações de criadores activas em praticamente todas as províncias pecuárias. Procure a associação da sua área e inscreva-se — o custo é mínimo e os benefícios são substanciais.</p>
+
+  <a href="#indice" class="volta">↑ Voltar ao Índice</a>
+</section>
+
+</main>
+
+<!-- ══════════════ RODAPÉ ══════════════ -->
 <footer>
-    <div class="footer-box">
-        <p>Site desenvolvida por <strong>João Enoc</strong></p>
-        <p>Contato do Dev: +244934919736</p>
-        <hr>
-                <p>@2026 Horizonte Digital todos os direitos reservados</p>
-    </div>
+  <strong>CyberSev Solução Digital</strong>
+  Guia Completo de Criação de Bovinos em Angola 2026<br>
+  Colecção Agronegócio Angola — Volume II<br>
+  Publicado em Luanda, República de Angola · Ano 2026<br>
+  Escrito em Português de Angola<br>
+  <span class="copy">© 2026 CyberSev Solução Digital. Todos os direitos reservados.<br>
+  A reprodução total ou parcial desta obra, por qualquer meio, sem autorização escrita da editora, é proibida e constitui violação dos direitos de autor nos termos da legislação angolana vigente.</span>
 </footer>
 
 </body>
